@@ -85,8 +85,8 @@ new HashSet().stream();
 常见的中间操作，看名字就知道有什么作用了
 
 
-- filter()
-- map()
+- filter()	// 对传参进行判断，符合的存进容器
+- map()         // 对传参进行操作 ，把操作完的数据放回流
 - distinct()     // 去重基于equals 和 hashCode的，具体为什么 [请看这里](<https://www.cnblogs.com/Howlet/p/12259639.html>)
 - sorted()
 - peek()
@@ -232,3 +232,63 @@ System.out.println(sum);  // 25，聚合实现总计功能，即用上一个值�
 
 
 
+
+
+
+
+
+
+
+
+
+
+## 6. Optional
+
+这里顺带说一下1.8的另一个新特性，优雅解决空指针异常
+
+
+
+```java
+/**
+ * @description 获取email并将其转成大写，若为空返回null
+ * @author Howl
+ */
+public class Test {
+	
+	public static String getEmail(User user){
+		
+		return Optional.ofNullable(user)
+				.map( t -> t.getEmail())
+				.map( t -> t.toUpperCase())
+				.orElse(null);
+	}
+	
+	public static void main(String[] args) {
+		
+		User user = null;
+		
+		System.out.println(user.getEmail());  // 这里报错
+		
+		System.out.println(Test.getEmail(user));  // 这里不报错
+	}
+}
+```
+
+
+
+常用方法：
+
+* Optional.empty()
+
+* Optional.of()
+
+* Optional.ofNullable()
+
+* optional.isPresent()
+
+* optional.get()
+
+* optional.orElse()
+
+* optional.map
+* optional.filter
