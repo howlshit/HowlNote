@@ -115,17 +115,11 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 ### 小功能实现
 
 * [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)
-
 * [bean转json-FastJson](<https://www.cnblogs.com/Howlet/p/12032264.html>)
-
 * [发送简单邮箱-javax.mail](<https://www.cnblogs.com/Howlet/p/12156169.html>)
-
 * [日志记录-Log4j](<https://www.cnblogs.com/Howlet/p/12067052.html>)
-
 * [自己的jar包](<https://www.cnblogs.com/Howlet/p/12248555.html>)
-
 * [文件上传-Fileupload](<https://www.cnblogs.com/Howlet/p/12057441.html>)
-
 * [邮箱激活账号-SpringBoot](<https://www.cnblogs.com/Howlet/p/12198922.html>)
 
   
