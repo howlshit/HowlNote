@@ -1,7 +1,7 @@
 # Howl同学的笔记
 
 ![](https://img.shields.io/badge/language-java-green)
-![](<https://img.shields.io/badge/jdk-1.8-orange>)
+![](<https://img.shields.io/badge/jdk-1.8-lightgrey>)
 ![](https://img.shields.io/badge/license-MIT-blue)
 ![](https://img.shields.io/badge/version-alpha_0.1-red)
 <a href="https://www.cnblogs.com/Howlet/">
