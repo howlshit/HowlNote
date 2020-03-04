@@ -48,6 +48,8 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
+
+
 ### JavaWeb
 
 * [甲Servlet](<https://www.cnblogs.com/Howlet/p/12038728.html>)
@@ -61,7 +63,11 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
+
+
 <br>
+
+
 
 
 
@@ -75,7 +81,11 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
+
+
 <br>
+
+
 
 
 
@@ -88,13 +98,43 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [Spring筑基之DI](<https://www.cnblogs.com/Howlet/p/11980172.html>)
 * [Spring金丹之AOP](<https://www.cnblogs.com/Howlet/p/11983022.html>)
 * [Spring元婴之总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
-* [SpringMVC下士之入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
-* [SprngMVC少尉之总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
-* [SpringBoot甲之使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
+* [SpringMVC列兵之入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
+* [SprngMVC下士之总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
+* [SpringBoot一线之使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
+
+
 
 
 
 <br>
+
+
+
+
+
+### 小功能实现
+
+* [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)
+
+* [bean转json-FastJson](<https://www.cnblogs.com/Howlet/p/12032264.html>)
+
+* [发送简单邮箱-javax.mail](<https://www.cnblogs.com/Howlet/p/12156169.html>)
+
+* [日志记录-Log4j](<https://www.cnblogs.com/Howlet/p/12067052.html>)
+
+* [自己的jar包](<https://www.cnblogs.com/Howlet/p/12248555.html>)
+
+* [文件上传-Fileupload](<https://www.cnblogs.com/Howlet/p/12057441.html>)
+
+* [邮箱激活账号-SpringBoot](<https://www.cnblogs.com/Howlet/p/12198922.html>)
+
+  
+
+
+
+<br>
+
+
 
 
 
@@ -110,7 +150,11 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
+
+
 <br>
+
+
 
 
 
@@ -121,6 +165,9 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [外包一层的装饰者模式](<https://www.cnblogs.com/Howlet/p/12020604.html>)
 * [什么是代理模式？](<https://www.cnblogs.com/Howlet/p/12023801.html>)
 * [JavaWeb中Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
+* [SpringMVC中的适配器模式](<https://www.cnblogs.com/Howlet/p/12408387.html>)
+
+
 
 
 
@@ -128,7 +175,10 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
+
+
 ### 工具
 
 * [缺少分支内容的Git笔记](<https://www.cnblogs.com/Howlet/p/12026544.html>)
+* [Markdown](<https://www.cnblogs.com/Howlet/p/12024162.html>)
 
