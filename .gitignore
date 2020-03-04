@@ -1,0 +1,10 @@
+# 只上传笔记，其余保留在本地
+*.xlsx
+*.png
+*.jpg
+*.pptx
+*.gif
+*.xmind
+*.html
+*.txt
+*.bat

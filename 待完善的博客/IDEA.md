@@ -1,0 +1,25 @@
+IDEA
+
+
+
+
+
+
+
+提示：ctrl + alt + space
+
+直接下一行 shift + enter
+
+复制行 ctrl + D
+
+格式化 ctrl + alt + L
+
+搜索文件 Double shift
+
+抽取变量 ctrl + alt + V
+
+移动 alt + shift + 方向键
+
+自动构造 alt + insert
+
+导包 alt + shift + enter
