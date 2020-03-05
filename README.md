@@ -101,6 +101,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [Spring元婴之总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
 * [SpringMVC入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
 * [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
+* [整合SSM教程](<https://www.cnblogs.com/Howlet/p/12421437.html>)
 * [SpringBoot使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
 
 
