@@ -19,7 +19,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 ## 目录
-仅列出部分笔记，剩余琐碎的内容就不列了，暗示：可在博客园或Github库内阅读全部笔记喔
+仅列出部分笔记，剩余琐碎的内容就不列了。疯狂暗示:jack_o_lantern:：可在博客园或Github库内阅读全部笔记喔
 
 <br>
 
@@ -56,11 +56,11 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [甲Servlet](<https://www.cnblogs.com/Howlet/p/12038728.html>)
 * [乙Filter](<https://www.cnblogs.com/Howlet/p/12042026.html>)
 * [丙Listener](<https://www.cnblogs.com/Howlet/p/12047343.html>)
-* [丁Tomcat目录结构](<https://www.cnblogs.com/Howlet/p/12128338.html>)
-* [戊手写Tomcat](<https://www.cnblogs.com/Howlet/p/12335032.html>)
-* [己大自然搬运工之JWT](<https://www.cnblogs.com/Howlet/p/12293989.html>)
-* [庚Ajax跨域解决方法](<https://www.cnblogs.com/Howlet/p/12336609.html>)
-* [辛Nginx](<https://www.cnblogs.com/Howlet/p/12340857.html>)
+* [Tomcat目录结构](<https://www.cnblogs.com/Howlet/p/12128338.html>)
+* [手写Tomcat](<https://www.cnblogs.com/Howlet/p/12335032.html>)
+* [大自然搬运工之JWT](<https://www.cnblogs.com/Howlet/p/12293989.html>)
+* [Ajax跨域解决方法](<https://www.cnblogs.com/Howlet/p/12336609.html>)
+* [Nginx负载均衡](<https://www.cnblogs.com/Howlet/p/12340857.html>)
 
 
 
@@ -99,9 +99,10 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [Spring筑基之DI](<https://www.cnblogs.com/Howlet/p/11980172.html>)
 * [Spring金丹之AOP](<https://www.cnblogs.com/Howlet/p/11983022.html>)
 * [Spring元婴之总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
-* [SpringMVC列兵之入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
-* [SprngMVC下士之总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
-* [SpringBoot一线之使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
+* [SpringMVC入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
+* [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
+* [整合SSM教程](<https://www.cnblogs.com/Howlet/p/12421437.html>)
+* [SpringBoot使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
 
 
 
