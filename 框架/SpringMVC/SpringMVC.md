@@ -621,6 +621,32 @@ public String annoMethod2(@PathVariable(value = "sid") int id) {
 
 
 
+#### @RestController中文乱码
+其默认使用tomcat的编码，而且直接返回给前端所以会乱码
+
+
+
+方法一：映射注解上加属性
+@RequestMapping(value = "/user", produces = "application/json;charset=utf-8")
+
+
+
+方法二：全局配置编码问题
+```xml
+<!--  开启mvc的注解支持,并且在Responsebody上使用UFT-8  -->
+<mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+            <property name="supportedMediaTypes" value="text/html;charset=UTF-8"></property>
+        </bean>
+    </mvc:message-converters>
+</mvc:annotation-driven>
+```
+
+
+
+
+
 #### DispatcherServlet在配置映射关系中用/，则会拦截所有请求，包括静态资源而导致无法访问，所以要在applicationContext中配置不拦截
 
 ```xml

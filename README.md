@@ -1,11 +1,11 @@
 # Howl同学的笔记
 
-![](https://img.shields.io/badge/language-java-green)
+![](https://img.shields.io/badge/language-java-brightgreen)
 ![](<https://img.shields.io/badge/jdk-1.8-lightgrey>)
 ![](https://img.shields.io/badge/license-MIT-blue)
 ![](https://img.shields.io/badge/version-alpha_0.1-red)
 <a href="https://www.cnblogs.com/Howlet/">
-<img src="https://img.shields.io/badge/关注-博客园-brightgreen"></a>
+<img src="https://img.shields.io/badge/关注-博客园-green"></a>
 
 写下笔记是为了记录学习过程，顺便Debug The World ~ 这些内容记录了笔者从超级菜鸟转变为小菜鸟的过程，现在分享出来希望有一定的避坑作用。由于笔者水平有限，可能会有错漏，欢迎指正。
 
@@ -19,7 +19,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 ## 目录
-仅列出部分笔记，剩余琐碎的内容就不列了。疯狂暗示:jack_o_lantern:：可在博客园或Github库内阅读全部笔记喔
+仅列出部分笔记，剩余琐碎的内容就不列了。疯狂暗示:jack_o_lantern:：可在 [博客园](https://www.cnblogs.com/Howlet/) 或 Github 库内阅读全部笔记喔
 
 <br>
 
@@ -95,14 +95,15 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [Mybatis青铜](<https://www.cnblogs.com/Howlet/p/11973432.html>)
 * [Mybatis白银](<https://www.cnblogs.com/Howlet/p/11979637.html>)
 * [Mybatis黄金总结](<https://www.cnblogs.com/Howlet/p/12347845.html>)
-* [Spring练气之IOC](<https://www.cnblogs.com/Howlet/p/11979935.html>)
-* [Spring筑基之DI](<https://www.cnblogs.com/Howlet/p/11980172.html>)
-* [Spring金丹之AOP](<https://www.cnblogs.com/Howlet/p/11983022.html>)
-* [Spring元婴之总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
+* [Spring之IOC](<https://www.cnblogs.com/Howlet/p/11979935.html>)
+* [Spring之DI](<https://www.cnblogs.com/Howlet/p/11980172.html>)
+* [Spring之AOP](<https://www.cnblogs.com/Howlet/p/11983022.html>)
+* [Spring总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
 * [SpringMVC入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
 * [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
 * [SpringMVC参数校验](<https://www.cnblogs.com/Howlet/p/12426887.html>)
 * [整合SSM教程](<https://www.cnblogs.com/Howlet/p/12421437.html>)
+* [SSM的疑难杂症--持续更新](<https://www.cnblogs.com/Howlet/p/12431642.html>)
 * [SpringBoot使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
 
 
