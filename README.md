@@ -1,6 +1,6 @@
 # Howl同学的笔记
 
-![](https://img.shields.io/badge/language-java-brightgreen)
+![](https://img.shields.io/badge/language-Java-brightgreen)
 ![](<https://img.shields.io/badge/jdk-1.8-lightgrey>)
 ![](https://img.shields.io/badge/license-MIT-blue)
 ![](https://img.shields.io/badge/version-alpha_0.1-red)
