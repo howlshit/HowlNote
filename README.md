@@ -3,8 +3,7 @@
 
 <p align="center">
 <a href="#" target="_blank">
-	<img src="https://raw.githubusercontent.com/howlshit/HowlNote/dev/%E5%85%B6%E4%BB%96/logo.png?token=AKFVZD7BCFVHFKQBZPLFGXK6MRXWI
-" width="150px"/>
+<img src="https://raw.githubusercontent.com/howlshit/HowlNote/dev/%E5%85%B6%E4%BB%96/logo.png?token=AKFVZD7BCFVHFKQBZPLFGXK6MRXWI" width="150px"/>
 </a>
 </p>
 
