@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="#" target="_blank">
-<img src="https://images.cnblogs.com/cnblogs_com/Howlet/1579506/o_200308035421logo.png" width="210px"/>
+<img src="https://images.cnblogs.com/cnblogs_com/Howlet/1579506/o_200308035421logo.png" width="180px"/>
 </a>
 </p>
 
