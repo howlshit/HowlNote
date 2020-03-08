@@ -1,14 +1,22 @@
 # Howl同学的笔记
 
-![](https://img.shields.io/badge/language-Java-brightgreen)
-![](<https://img.shields.io/badge/jdk-1.8-lightgrey>)
-![](https://img.shields.io/badge/license-MIT-blue)
-![](https://img.shields.io/badge/version-alpha_0.1-red)
+
+<p align="center">
+<a href="#" target="_blank">
+	<img src="https://images.cnblogs.com/cnblogs_com/Howlet/1579506/o_200308035421logo.png
+" width="150px"/>
+</a>
+</p>
+
+<p align="center">
+<a><img src="https://img.shields.io/badge/language-Java-brightgreen"/></a>
+<a><img src="https://img.shields.io/badge/jdk-1.8-lightgrey"/></a>
+<a><img src="https://img.shields.io/badge/license-MIT-blue"/></a>
+<a><img src="https://img.shields.io/badge/version-alpha_0.1-red"/></a>
 <a href="https://www.cnblogs.com/Howlet/">
 <img src="https://img.shields.io/badge/关注-博客园-green"></a>
-
-写下笔记是为了记录学习过程，顺便Debug The World ~ 这些内容记录了笔者从超级菜鸟转变为小菜鸟的过程，现在分享出来希望有一定的避坑作用。由于笔者水平有限，可能会有错漏，欢迎指正。
-
+</p>
+<h6 align="center">笔记是为了记录学习过程，顺便Debug The World ~ 这些内容记录了笔者从超级菜鸟转变为小菜鸟的过程，现在分享出来希望有一定的避坑作用。由于笔者水平有限，可能会有错漏，欢迎指正。</h3>
 <br>
 
 ## 注意事项
@@ -119,22 +127,14 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 ### 小功能实现
 
 * [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)
-
 * [bean转json-FastJson](<https://www.cnblogs.com/Howlet/p/12032264.html>)
-
 * [发送简单邮箱-javax.mail](<https://www.cnblogs.com/Howlet/p/12156169.html>)
-
 * [日志记录-Log4j](<https://www.cnblogs.com/Howlet/p/12067052.html>)
-
 * [自己的jar包](<https://www.cnblogs.com/Howlet/p/12248555.html>)
-
 * [文件上传-Fileupload](<https://www.cnblogs.com/Howlet/p/12057441.html>)
-
 * [邮箱激活账号-SpringBoot](<https://www.cnblogs.com/Howlet/p/12198922.html>)
-
 * [评论功能的三种实现](<https://www.cnblogs.com/Howlet/p/12441508.html>)
 
-  
 
 
 
