@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="#" target="_blank">
-<img src="https://raw.githubusercontent.com/howlshit/HowlNote/dev/%E5%85%B6%E4%BB%96/logo.png?token=AKFVZD7BCFVHFKQBZPLFGXK6MRXWI" width="150px"/>
+<img src="https://images.cnblogs.com/cnblogs_com/Howlet/1579506/o_200308035421logo.png" width="150px"/>
 </a>
 </p>
 
