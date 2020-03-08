@@ -110,6 +110,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
 * [SpringMVC参数校验](<https://www.cnblogs.com/Howlet/p/12426887.html>)
 * [整合SSM教程](<https://www.cnblogs.com/Howlet/p/12421437.html>)
+* [SSM动态切换数据源](<https://www.cnblogs.com/Howlet/p/12446603.html>)
 * [SSM的疑难杂症--持续更新](<https://www.cnblogs.com/Howlet/p/12431642.html>)
 * [SpringBoot使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
 
