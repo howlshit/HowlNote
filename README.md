@@ -134,6 +134,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [文件上传-Fileupload](<https://www.cnblogs.com/Howlet/p/12057441.html>)
 * [邮箱激活账号-SpringBoot](<https://www.cnblogs.com/Howlet/p/12198922.html>)
 * [评论功能的三种实现](<https://www.cnblogs.com/Howlet/p/12441508.html>)
+* [日常的站内信](<https://www.cnblogs.com/Howlet/p/12450520.html>)
 
 
 
