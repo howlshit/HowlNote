@@ -199,6 +199,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### 网络基础
+### 网络基础、操作系统
 
-* 一片空白，立flag要写下几篇笔记
+* [初探Linux](<https://www.cnblogs.com/Howlet/p/12464994.html>)
+* [Linux常见命令](https://www.cnblogs.com/Howlet/p/12463083.htmlLin)
