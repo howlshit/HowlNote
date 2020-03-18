@@ -1,34 +1,40 @@
 # 1. Spring Boot简介
 
-采用约定大于配置，简化Spring开发步骤与复杂的部署流程，
+* 采用约定大于配置，简化Spring开发步骤与复杂的部署流程
 
-快速创立可独立运行的Spring项目以及集成主流框架
+* 快速创立可独立运行的Spring项目以及集成主流框架
 
-嵌入式Servlet容器，无需打war包
+* 嵌入式Servlet容器，无需打war包
 
-starter自动依赖与版本控制
+* starter自动依赖与版本控制
 
-大量的自动配置，可修改默认值
+* 大量的自动配置，可修改默认值
 
-需要xml，无代码生成，开箱即用
+* 需要xml，无代码生成，开箱即用
 
-准生产环境的运行时应用监控
+* 准生产环境的运行时应用监控
 
-与计算天然集成
+* 与计算天然集成
 
-整合Spring技术栈的大框架
-
-
-
-大背景：微服务
+* 整合Spring技术栈的大框架
 
 
 
 
 
 
+
+
+
+
+
+
+
+# 2. 快速入门
 
 1.创建maven工程jar
+
+
 
 2.导入父项目与依赖
 
@@ -47,6 +53,8 @@ starter自动依赖与版本控制
 </dependencies>
 ```
 
+
+
 3.创建主程序
 
 ```
@@ -63,6 +71,8 @@ public class HelloWorld {
 }
 ```
 
+
+
 4.编写controller
 
 ```
@@ -76,11 +86,15 @@ public class HelloController {
 }
 ```
 
+
+
 5.测试
 
 ```
 来到主程序运行main方法
 ```
+
+
 
 6.打包部署（记住名字不能有空格）
 
@@ -98,11 +112,7 @@ public class HelloController {
 
 
 
-父项目的作用？？？？
-
-
-
-分析pom.xml
+7.分析pom.xml
 
 ```
 spring-boot-starter-parent：还有一个父项目spring-boot-dependencies，里面规定了依赖版本号：
@@ -121,7 +131,7 @@ spring-boot-starter-parent：还有一个父项目spring-boot-dependencies，里
 
 
 
-导入的依赖
+8.导入的依赖
 
 ```
 <dependency>
@@ -132,17 +142,11 @@ spring-boot-starter-parent：还有一个父项目spring-boot-dependencies，里
 
 spring-boot-starter-web：springBoot的场景启动器，里面很多依赖如：spring-web、spring-webmvc、jackson、hibernate-validator、spring-boot-starter-tomcat、spring-boot-starter
 
-
-
-将功能场景抽取出来，做成starters启动器，只要项目中导入对应的启动器，那么相关场景的依赖就会自动导入
-
+场景启动器：将功能场景抽取出来，做成starters启动器，只要项目中导入对应的启动器，那么相关场景的依赖就会自动导入
 
 
 
-
-
-
-主程序类，入口类
+9.主程序类，入口类
 
 ```
 @SpringBootApplication
@@ -160,7 +164,7 @@ public class HelloWorld {
 
 
 
-内部注解
+10.内部注解
 
 ```
 @Target({ElementType.TYPE})
@@ -185,7 +189,7 @@ public class HelloWorld {
 
 
 
-@EnableAutoConfiguration：开启自动配置功能，其内部又有：
+11.@EnableAutoConfiguration：开启自动配置功能，其内部又有：
 
 ```
 @AutoConfigurationPackage
@@ -194,7 +198,7 @@ public class HelloWorld {
 
 
 
-@AutoConfigurationPackage：**将主配置类@SpringBootApplication标注的类及同级下面所有子包所有子包组件扫描**
+12.@AutoConfigurationPackage：**将主配置类@SpringBootApplication标注的类及同级下面所有子包所有子包组件扫描**
 
 内部是@Import({Registrar.class})，spring的导入组件注解，Registrar.class内部有个方法
 
@@ -212,7 +216,7 @@ BeanDefinitionRegistry registry) {
 
 
 
-@Import({EnableAutoConfigurationImportSelector.class})：
+13.@Import({EnableAutoConfigurationImportSelector.class})：
 
 导入组件的选择器EnableAutoConfigurationImportSelector.class，内容是：
 
@@ -235,7 +239,11 @@ public String[] selectImports(AnnotationMetadata annotationMetadata) {
 
 
 
-## 快速创建Spring应用（创建向导）
+
+
+
+
+# 3. 快速创建Spring应用（创建向导）
 
 Spring  Initializer
 
@@ -244,8 +252,6 @@ Spring  Initializer
   * static保存所有的静态资源
   * templates保存模板页面
   * application.properties：springboot的配置文件，这里可修改默认的
-
-
 
 
 
@@ -287,8 +293,6 @@ pets:
   
 pets: [dog,cat,pig]
 ```
-
-
 
 
 
@@ -338,10 +342,6 @@ person.name=哈哈哈
 
 
 
-
-
-
-
 ### 读取外部文件与xml配置文件
 
 ```
@@ -366,8 +366,6 @@ public class Myconfig {
 
 
 
-
-
 ### 配置文件随机数与占位符
 
 ```
@@ -375,6 +373,14 @@ ${random.value}
 person.age=20
 person.name=${person.age:默认值}_Howl
 ```
+
+
+
+
+
+
+
+
 
 
 
