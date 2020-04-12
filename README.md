@@ -226,19 +226,12 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 ### 推荐书籍、网站
 
 * [《学校发的教科书》]()--------  不必解释了
-
 * [《Java核心技术卷一》]()--------  正在观摩，听说很好
-
 * [《Java并发编程之美》]()--------  看完很多地方真的豁然开朗
-
 * [《深入理解Java虚拟机》]()--------  很厚，挑重点看
-
 * [《图解TCP/IP》]()--------  看完再写评语把
-
 * [《图解HTTP》]()--------  生动有趣，一两天能看完
-
 * [《啊哈算法》]()--------  适合了解算法不深入，不显得枯燥
-
 * [笔者的Github](<https://github.com/howlshit/HowlNote>)
 * [查看Java8的API](<http://www.matools.com/api/java8>)
 * [Java全栈知识体系](<https://www.pdai.tech/md/java/basic/java-basic-lan-basic.html>)
