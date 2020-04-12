@@ -45,6 +45,8 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [IO流](<https://www.cnblogs.com/Howlet/p/12033337.html>)
 * [BIO，NIO确定不来看一下？](<https://www.cnblogs.com/Howlet/p/12286670.html>)
 * [容易忽略的时间API](<https://www.cnblogs.com/Howlet/p/12290469.html>)
+* [调试专家JUnit](<https://www.cnblogs.com/Howlet/p/12382004.html>)
+* [是不是没用过回调？](<https://www.cnblogs.com/Howlet/p/12325363.html>)
 * [Stream的起飞操作](<https://www.cnblogs.com/Howlet/p/12402991.html>)
 * [RPC的简单实现](<https://www.cnblogs.com/Howlet/p/12367745.html>)
 * [学不会的JVM](<https://www.cnblogs.com/Howlet/p/12106762.html>)
@@ -80,13 +82,15 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### Mysql
+### 数据库
 
-* [入门的基础语句](<https://www.cnblogs.com/Howlet/p/12047596.html>)
-* [JDBC具体操作](<https://www.cnblogs.com/Howlet/p/12053393.html>)
-* [sql语句优化](<https://www.cnblogs.com/Howlet/p/12051990.html>)
-* [简单了解锁机制](<https://www.cnblogs.com/Howlet/p/12051757.html>)
-* [如何配置C3P0](<https://www.cnblogs.com/Howlet/p/12063609.html>)
+* [Mysql入门的基础语句](<https://www.cnblogs.com/Howlet/p/12047596.html>)
+* [Mysql的JDBC具体操作](<https://www.cnblogs.com/Howlet/p/12053393.html>)
+* [Mysql的sql语句优化](<https://www.cnblogs.com/Howlet/p/12051990.html>)
+* [Mysql简单了解锁机制](<https://www.cnblogs.com/Howlet/p/12051757.html>)
+* [Mysql如何配置C3P0](<https://www.cnblogs.com/Howlet/p/12063609.html>)
+* [Redis基本操作](<https://www.cnblogs.com/Howlet/p/12669676.html>)
+* [Redis升级之路](<https://www.cnblogs.com/Howlet/p/12686522.html>)
 
 
 
@@ -108,12 +112,12 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [Spring之AOP](<https://www.cnblogs.com/Howlet/p/11983022.html>)
 * [Spring总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
 * [SpringMVC入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
-* [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
 * [SpringMVC参数校验](<https://www.cnblogs.com/Howlet/p/12426887.html>)
+* [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
 * [整合SSM教程](<https://www.cnblogs.com/Howlet/p/12421437.html>)
 * [SSM动态切换数据源](<https://www.cnblogs.com/Howlet/p/12446603.html>)
 * [SSM的疑难杂症--持续更新](<https://www.cnblogs.com/Howlet/p/12431642.html>)
-* [SpringBoot使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
+* [SpringBoot之你好世界](<https://www.cnblogs.com/Howlet/p/12189499.html>)
 
 
 
@@ -129,6 +133,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 * [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)
 * [bean转json-FastJson](<https://www.cnblogs.com/Howlet/p/12032264.html>)
+* [常见操作之重写equal、hashCode](<https://www.cnblogs.com/Howlet/p/12259639.html>)
 * [发送简单邮箱-javax.mail](<https://www.cnblogs.com/Howlet/p/12156169.html>)
 * [日志记录-Log4j](<https://www.cnblogs.com/Howlet/p/12067052.html>)
 * [自己的jar包](<https://www.cnblogs.com/Howlet/p/12248555.html>)
@@ -172,6 +177,9 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [生产工具之工厂模式](<https://www.cnblogs.com/Howlet/p/12019108.html>)
 * [外包一层的装饰者模式](<https://www.cnblogs.com/Howlet/p/12020604.html>)
 * [什么是代理模式？](<https://www.cnblogs.com/Howlet/p/12023801.html>)
+* [固定顺序的模板模式](<https://www.cnblogs.com/Howlet/p/12287072.html>)
+* [JDBC使用的桥接模式](<https://www.cnblogs.com/Howlet/p/12311094.html>)
+* [JaveWeb中Listener涉及的监听器模式](<https://www.cnblogs.com/Howlet/p/12325646.html>)
 * [JavaWeb中Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
 * [SpringMVC中的适配器模式](<https://www.cnblogs.com/Howlet/p/12408387.html>)
 
@@ -204,3 +212,36 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 * [初探Linux](<https://www.cnblogs.com/Howlet/p/12464994.html>)
 * [Linux常见命令](https://www.cnblogs.com/Howlet/p/12463083.htmlLin)
+
+
+
+
+
+<br>
+
+
+
+
+
+### 推荐书籍、网站
+
+《学校发的教科书》--------  不必解释了
+
+《Java核心技术卷一》--------  正在观摩，听说很好
+
+《Java并发编程之美》--------  看完很多地方真的豁然开朗
+
+《深入理解Java虚拟机》--------  很厚，挑重点看
+
+《图解TCP/IP》--------  看完再写评语把
+
+《图解HTTP》--------  生动有趣，一两天能看完
+
+《啊哈算法》--------  适合了解算法不深入，不显得枯燥
+
+* [笔者的Github](<https://github.com/howlshit/HowlNote>)
+* [查看Java8的API](<http://www.matools.com/api/java8>)
+* [Java全栈知识体系](<https://www.pdai.tech/md/java/basic/java-basic-lan-basic.html>)
+* [Linux命令查询](<https://man.linuxde.net/xinshoumingling>)
+* [阿里云服务器推广链接](https://www.aliyun.com/minisite/goods?userCode=aec667dr)
+
