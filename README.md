@@ -39,6 +39,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [线程的基本方法](<https://www.cnblogs.com/Howlet/p/12015259.html>)
 * [线程的锁](<https://www.cnblogs.com/Howlet/p/12230652.html>)
 * [线程的池](<https://www.cnblogs.com/Howlet/p/12233870.html>)
+* [线程的三个同步器](<https://www.cnblogs.com/Howlet/p/12685072.html>)
 * [线程的补充](<https://www.cnblogs.com/Howlet/p/12234203.html>)
 * [隐藏Boss之反射机制](<https://www.cnblogs.com/Howlet/p/12095514.html>)
 * [IO流](<https://www.cnblogs.com/Howlet/p/12033337.html>)
