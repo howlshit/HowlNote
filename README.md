@@ -32,6 +32,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 ### Java基础
 
+* [补码反码与位运算](<https://www.cnblogs.com/Howlet/p/12706396.html>)
 * [数组工具类Arrays](<https://www.cnblogs.com/Howlet/p/12115625.html>)
 * [常被提问的String](<https://www.cnblogs.com/Howlet/p/12114605.html>)
 * [List集合源码分析](<https://www.cnblogs.com/Howlet/p/12003389.html>)
