@@ -179,3 +179,37 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 3.5
+
+一副牌再加入2个王，大王能当作任意数字。随机抽牌，判断能否组成5张顺子，传入的是数组，返回T/F
+
+```java
+/**
+ * 参考第一的回答写了注释，利用了桶排序的思想吧
+ * 条件：1.数组长度为5
+ *      2.最值差 < 5
+ *      3.除0外没有重复的数
+ * 前两个条件组合理解为：固定大小为5的窗口在数轴上滑动
+ * 第三个条件理解为：大王填充窗口内的空缺数字，形成顺子窗口
+ */
+public class Solution {
+    public boolean isContinuous(int [] numbers) {
+        if(numbers.length < 5) return false;          // 牌数不少于5
+        int min = 14,max = 0;                        // 记录最值
+        int[] bucket = new int[14];                   // 桶子
+        for(int i = 0; i < numbers.length; i++){      // 循环5个牌
+            bucket[numbers[i]]++;                     // 将牌放入桶子
+            if(numbers[i] == 0) continue;             // 跳过王，不进行下面的判断
+            if(bucket[numbers[i]] > 1) return false;  // 判断重复
+            if(numbers[i] > max) max = numbers[i];    // 最大值
+            if(numbers[i] < min) min = numbers[i];    // 最小值
+        }
+        return (max - min) < 5;        // 判断最值差
+    }
+}
+```
+
