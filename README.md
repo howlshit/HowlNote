@@ -229,7 +229,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### 成神之路
+### 手撕168题
 
 * [nowcoder-1]()
 * [nowcoder-2]()
@@ -248,18 +248,23 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### 推荐书籍、网站
+### 推荐书籍、公众号、网站
 
+* 书籍
 * [《学校发的教科书》]()--------  不必解释了
 * [《Java核心技术卷一》]()--------  正在观摩，听说很好
 * [《Java并发编程之美》]()--------  看完很多地方真的豁然开朗
-* [《深入理解Java虚拟机》]()--------  很厚，挑重点看
-* [《图解TCP/IP》]()--------  看完再写评语把
+* [《深入理解Java虚拟机》]()--------  很厚挑重点看，之后会理解学Java时的困惑
+* [《图解TCP/IP》]()--------  本书重在理解，配合教科书可以深入
 * [《图解HTTP》]()--------  生动有趣，一两天能看完
-* [《啊哈算法》]()--------  适合了解算法不深入，不显得枯燥
+* [《啊哈算法》]()--------  适合初步了解算法不深入，不显得枯燥
+* 公众号
+* [程序员小灰]()  --------  漫画形式讲解小知识
+* [Java3y]()  --------  笔者学习Java的启蒙
+* [JavaGuide]()  --------  初级Java毕业指南
+* 网站
 * [笔者的Github](<https://github.com/howlshit/HowlNote>)
 * [查看Java8的API](<http://www.matools.com/api/java8>)
 * [Java全栈知识体系](<https://www.pdai.tech/md/java/basic/java-basic-lan-basic.html>)
 * [Linux命令查询](<https://man.linuxde.net/xinshoumingling>)
 * [笔者的阿里云服务器推广链接](https://www.aliyun.com/minisite/goods?userCode=aec667dr)
-
