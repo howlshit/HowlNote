@@ -213,3 +213,81 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 3.6
+
+约瑟夫环问题，n为总数，m为间隔数
+
+```java
+import java.util.LinkedList;
+public class Solution {
+    public int LastRemaining_Solution(int n, int m) {
+        LinkedList<Integer> list = new LinkedList();  // 链表模拟约瑟夫环
+        for(int i = 0; i < n; i++) list.add(i);
+        int pre = 0;                                  // 记录上次去除的位置
+        while(list.size() > 1){                       // 剩最后一人时结束
+            int cur = (pre + m - 1) % list.size();    // （上次位置+间隙） % 长度 = 当前该删位置
+            list.remove(cur);                         // 元素被去除
+            pre = cur;                                // 上次的位置，变成这次的了
+        }
+        return list.size() == 1 ? list.get(0) : -1;
+    }
+}
+
+// 循环或者一句搞定
+// int cur = 0;
+// cur = (cur + m - 1) % list.size();
+```
+
+
+
+
+
+## 3.7
+
+求1+2+...n，不用乘除法、for、while、if、else、switch、case
+
+```java
+// 因为java判断有些不同，所以要用到无意义的变量
+public class Solution {
+    public int Sum_Solution(int n) {
+        int rs = 0;
+        int noMean1 = 0;
+        boolean noMean2 = (n > 0) && noMean == (rs = Sum_Solution(n - 1));
+        rs += n;
+        return rs;
+    }
+}
+```
+
+
+
+
+
+## 3.8 
+
+求整数和，不能用 +  -  *  /  
+
+```java
+/**
+ * 各位与：查看两个数都为1（进位），然后左移表示进位操作
+ * 各位异或：查看只有一位为1的（即无进位），可以直接计算。
+ */
+
+public class Solution {
+    public int Add(int num1,int num2) {
+        
+        while(num2 != 0){
+            int sum = num1 ^ num2;  // 计算单1位（0和0位不用计算了，1和1的给下面进位操作了）
+            int carry = (num1 & num2) << 1;  // 进位操作
+            num1 = sum;
+            num2 = carry;
+        }
+        return num1;
+    }
+}
+```
+
