@@ -47,7 +47,6 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [BIO，NIO确定不来看一下？](<https://www.cnblogs.com/Howlet/p/12286670.html>)
 * [容易忽略的时间API](<https://www.cnblogs.com/Howlet/p/12290469.html>)
 * [调试专家JUnit](<https://www.cnblogs.com/Howlet/p/12382004.html>)
-* [是不是没用过回调？](<https://www.cnblogs.com/Howlet/p/12325363.html>)
 * [Stream的起飞操作](<https://www.cnblogs.com/Howlet/p/12402991.html>)
 * [RPC的简单实现](<https://www.cnblogs.com/Howlet/p/12367745.html>)
 * [学不会的JVM](<https://www.cnblogs.com/Howlet/p/12106762.html>)
@@ -187,6 +186,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [JDBC使用的桥接模式](<https://www.cnblogs.com/Howlet/p/12311094.html>)
 * [JaveWeb中Listener涉及的监听器模式](<https://www.cnblogs.com/Howlet/p/12325646.html>)
 * [JavaWeb中Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
+* [Spring中四处可见的回调模式](<https://www.cnblogs.com/Howlet/p/12325363.html>)
 * [SpringMVC中的适配器模式](<https://www.cnblogs.com/Howlet/p/12408387.html>)
 
 

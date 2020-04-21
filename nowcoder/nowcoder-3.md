@@ -1,4 +1,4 @@
-### 3.1 
+### 1 
 
 假设连续正整数之和为S（至少包括两个数），列出该条件下的所有序列
 
@@ -38,7 +38,7 @@ public class Solution {
 
 
 
-## 3.2
+## 2
 
 在递增数组中查找和为S的两个数，输出其中两个数乘积最小的
 
@@ -78,7 +78,7 @@ public class Solution {
 
 
 
-## 3.3
+## 3
 
 字符串循环左移
 
@@ -136,7 +136,7 @@ public class Solution {
 
 
 
-## 3.4
+## 4
 
 句子反转：student a am I   ---->  I am a student
 
@@ -183,7 +183,7 @@ public class Solution {
 
 
 
-## 3.5
+## 5
 
 一副牌再加入2个王，大王能当作任意数字。随机抽牌，判断能否组成5张顺子，传入的是数组，返回T/F
 
@@ -217,7 +217,7 @@ public class Solution {
 
 
 
-## 3.6
+## 6
 
 约瑟夫环问题，n为总数，m为间隔数
 
@@ -246,7 +246,7 @@ public class Solution {
 
 
 
-## 3.7
+## 7
 
 求1+2+...n，不用乘除法、for、while、if、else、switch、case
 
@@ -267,7 +267,7 @@ public class Solution {
 
 
 
-## 3.8 
+## 8 
 
 求整数和，不能用 +  -  *  /  
 
@@ -287,6 +287,183 @@ public class Solution {
             num2 = carry;
         }
         return num1;
+    }
+}
+```
+
+
+
+
+
+## 9
+
+字符串转换整数
+
+```java
+public class Solution {
+    public int StrToInt(String str) {
+        // 1.空串判断
+        if(str == null || str.trim().equals("")) return 0;
+        
+        // 2.转换整数
+        long sum = 0;
+        char[] arr = str.toCharArray();
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] >= '0' && arr[i] <= '9'){
+                sum = sum * 10 + arr[i] - '0';
+            }else if(sum != 0){  // 这里可能返回 + - 0
+                return 0;
+            }
+        }
+        
+        // 3.符号判断
+        sum = arr[0] == '-' ? -sum : sum;
+        
+        // 4.溢出判断
+        if(sum > Integer.MAX_VALUE || sum < Integer.MIN_VALUE) return 0;
+        
+        // 5.返回值强转
+        return (int)sum;
+    }
+}
+```
+
+
+
+
+
+## 10
+
+输出数组第一个重复元素
+
+```java
+public class Solution {
+    public boolean duplicate(int numbers[],int length,int [] duplication) {
+        // 用了桶排序思想，出现的桶位置上标1
+        int[] arr = new int[length];
+        for(int i = 0; i < length; i++){
+            if(arr[numbers[i]] == 1){
+                duplication[0] = numbers[i];
+                return true;
+            }
+            arr[numbers[i]]++;
+        }
+        return false;
+    }
+}
+```
+
+```java
+// 剑指offer思路：把元素值当成数组下标，时间O(n),空间O(1)
+// 遍历将元素放入与元素值的相等的下标处，与原元素对换咯，下面模拟交换过程
+//      — — — —     — — — —     — — — —     — — — —
+//      3 2 1 2 --> 2 2 1 3 --> 1 2 2 3 --> 2 1 2 3   再换就重复了
+//      _ _ _ _     _ _ _ _     _ _ _ _     _ _ _ _
+//下标： 0 1 2 3     0 1 2 3     0 1 2 3     0 1 2 3
+public class Solution {
+    public boolean duplicate(int numbers[],int length,int [] duplication) {
+        if(numbers == null || length <= 0) return false;
+        
+        for(int i = 0; i < length; i++){
+            while(numbers[i] != i){  // 元素值与其下标不等
+                if( numbers[i] == numbers[numbers[i]] ){  // 对应下标有了，且非位也有
+                    duplication[0] = numbers[i];
+                    return true;
+                }
+                
+                int temp = numbers[i];  // 这个交换过程有点难理解
+                numbers[i] = numbers[temp];
+                numbers[temp] = temp;
+            }
+            // 这里是第一次相等，即出现一次
+        }
+        return false;
+    }
+}
+```
+
+
+
+
+
+## 11
+
+乘积数组：
+
+给定数组A[0,1,...,n-1]，构建数组B[0,1,...,n-1]，数组B的元素值为排除自身下标的数组A各项积，且不能使用除法
+
+![1587430819186](C:\Users\Howl\AppData\Roaming\Typora\typora-user-images\1587430819186.png)
+
+```java
+// 剑指offer思路：利用上下三角
+import java.util.ArrayList;
+public class Solution {
+    public int[] multiply(int[] A) {
+        
+        if (A == null || A.length == 0) return new int[1];
+        
+        int[] B = new int[A.length];
+        B[0] = 1;
+        for(int i = 1; i < B.length; i++){
+            B[i] = B[i-1] * A[i-1];  // 下三角
+        }
+        int temp = 1;
+        for(int j = B.length-2; j >= 0; j--){
+            temp *= A[j+1];  // 上三角，这里A应该横着看
+            B[j] *= temp;
+        }
+        return B;
+    }
+}
+```
+
+```java
+// 暴力法：嵌套for循环，外层遍历A，将int temp = A[i]，且赋值A[i] = 1;
+// 内层循环直接暴力计算A[1] * A[n]
+// 内层循环结束，走到外层循环最后时，还原A[i] = temp;
+```
+
+
+
+
+
+## 12
+
+正则表达式匹配
+
+```java
+public class Solution {
+    public boolean match(char[] str, char[] pattern){
+        if(str == null || pattern == null) return false;
+        return match(str,pattern,0,0);
+    }
+    private boolean match(char[] str, char[] pattern,int sindex,int pindex){
+        // 完美匹配
+        if(sindex == str.length && pindex == pattern.length) return true;
+        
+        // pattern先用完了
+        if(pindex >= pattern.length) return false;
+        
+        // 下一个字符是 *
+        if(pindex + 1 < pattern.length && pattern[pindex + 1] == '*'){
+            // 当前字符相等或遇到'.'
+            if( sindex < str.length && (str[sindex] == pattern[pindex] || pattern[pindex] == '.') ){
+                return match(str,pattern,sindex,pindex+2)    // 模式后移2，视为x*匹配0个字符
+                    || match(str,pattern,sindex+1,pindex+2)  // 视为模式匹配1个字符
+                    || match(str,pattern,sindex+1,pindex);   // *匹配1个，再匹配str中的下一个
+            }else{
+                return match(str,pattern,sindex,pindex+2);
+            }
+            
+        // 下一个字符不是 *
+        }else{
+            if( sindex < str.length && (str[sindex] == pattern[pindex] || pattern[pindex] == '.') ){
+                return match(str,pattern,sindex+1,pindex+1);
+            }
+            else{
+                return false;
+            }
+        }
     }
 }
 ```
