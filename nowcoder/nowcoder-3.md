@@ -429,7 +429,7 @@ public class Solution {
 
 ## 12
 
-正则表达式匹配
+模拟正则表达式匹配字符串
 
 ```java
 public class Solution {
@@ -466,5 +466,82 @@ public class Solution {
         }
     }
 }
+```
+
+
+
+
+
+## 13
+
+判断是否数值，"12e"，"1a3.14"，"1.2.3"，"+-5"，"12e+4.3"都不是
+
+```java
+// 不能同时存在两个e，后面一定要接数字
+public class Solution {
+    public boolean isNumeric(char[] str) {
+        // 标记符号、小数点、e是否出现过
+        boolean sign = false, decimal = false, hasE = false;
+        for (int i = 0; i < str.length; i++) {  // 遍历每个字符
+            if (str[i] == 'e' || str[i] == 'E') {
+                if (i == str.length-1) return false; // e后面一定要接数字
+                if (hasE) return false;  // 不能同时存在两个e
+                hasE = true;  // e出现一次
+            }else if (str[i] == '+' || str[i] == '-') {
+                // 第二次出现+-符号，则必须紧接在e之后
+                if (sign && str[i-1] != 'e' && str[i-1] != 'E') return false;
+                // 第一次出现+-符号，且不是在字符串开头，则也必须紧接在e之后
+                if (!sign && i > 0 && str[i-1] != 'e' && str[i-1] != 'E') return false;
+                sign = true; // +-出现一次
+            } else if (str[i] == '.') {
+                // e后面不能接小数点，小数点不能出现两次
+                if (hasE || decimal) return false;
+                decimal = true;
+            } else if (str[i] < '0' || str[i] > '9') // 不合法字符
+                return false;
+        }
+        return true;
+    }
+}
+```
+
+
+
+
+
+## 14
+
+从字符流中判断第一个出现一次的字符：google  ---> ggg#ll
+
+```java
+import java.util.ArrayList;
+import java.util.HashMap;
+public class Solution {
+
+    HashMap<Character, Integer> map = new HashMap();
+    ArrayList<Character> list = new ArrayList<Character>();
+    //Insert one char from stringstream
+    public void Insert(char ch)
+    {
+        if(map.containsKey(ch)){
+            map.put(ch,map.get(ch) + 1);
+        }else{
+            map.put(ch,1);
+        }
+        list.add(ch);
+    }
+  //return the first appearence once char in current stringstream
+    public char FirstAppearingOnce()
+    {
+        for(char value : list){
+            if(map.get(value) == 1){
+                return value;
+            }
+        }
+        return '#';
+    }
+}
+
+// 思路有三个，一个Map，一个数组，还有一个LinkedHashMap内有插入顺序和访问顺序
 ```
 
