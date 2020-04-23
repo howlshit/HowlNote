@@ -134,6 +134,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 ### 小功能实现
 
 * [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)
+* [绘制验证码](<https://www.cnblogs.com/Howlet/p/12753955.html>)
 * [bean转json-FastJson](<https://www.cnblogs.com/Howlet/p/12032264.html>)
 * [常见操作之重写equal、hashCode](<https://www.cnblogs.com/Howlet/p/12259639.html>)
 * [发送简单邮箱-javax.mail](<https://www.cnblogs.com/Howlet/p/12156169.html>)
@@ -256,7 +257,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [《Java核心技术卷一》]()--------  正在观摩，听说很好
 * [《Java并发编程之美》]()--------  看完很多地方真的豁然开朗
 * [《深入理解Java虚拟机》]()--------  很厚挑重点看，之后会理解学Java时的困惑
-* [《图解TCP/IP》]()--------  本书重在理解，配合教科书可以深入
+* [《图解TCP/IP》]()--------  本书重在理解，配合教科书可深入
 * [《图解HTTP》]()--------  生动有趣，一两天能看完
 * [《啊哈算法》]()--------  适合初步了解算法不深入，不显得枯燥
 * 公众号
