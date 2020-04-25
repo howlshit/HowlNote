@@ -1548,3 +1548,73 @@ mybatis:
 	刷新容器：IOC容器初始化，加载组件（配置类、@bean）,还有嵌入式容器
 	从IOC获取所有的ApplicationRunner和CommandRunner
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 20. 定时任务
+
+使用SpringBoot注解来开启定时任务十分简便
+
+
+
+#### 1. 在启动类上加注解
+
+```java
+@SpringBootApplication
+@EnableScheduling  // 开启定时任务
+public class SpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootApplication.class, args);
+    }
+}
+```
+
+
+
+#### 2. 建立定时类
+
+```java
+@Component // 加入组件
+public class TestSchedule {
+
+    // 表示定时任务，cron表达式：每10秒执行
+    @Scheduled(cron = "*/10 * * * * ?")
+    public void test1(){
+
+        System.out.println("task one");
+    }
+
+    // 表示定时任务，延迟2秒执行
+    @Scheduled(fixedDelay = 2000)
+    public void test2(){
+        System.out.println("task two");
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
