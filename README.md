@@ -131,6 +131,20 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
+### 中间件
+
+* [RabbitMQ](<https://www.cnblogs.com/Howlet/p/12784391.html>)
+
+
+
+
+
+<br>
+
+
+
+
+
 ### 小功能实现
 
 * [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)

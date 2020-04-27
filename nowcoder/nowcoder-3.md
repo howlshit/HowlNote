@@ -545,3 +545,51 @@ public class Solution {
 // 思路有三个，一个Map，一个数组，还有一个LinkedHashMap内有插入顺序和访问顺序
 ```
 
+
+
+
+
+## 15
+
+
+
+
+
+
+
+## 16
+
+删除链表中重复的节点，eg：1->2->3->3->4->4->5  处理后为  1->2->5
+
+```java
+// 思路使用三个指针
+public class Solution {
+    public ListNode deleteDuplication(ListNode pHead){
+        if(pHead == null || pHead.next == null) return pHead; // 只有0或1个直接返回空节点
+        
+        ListNode Head = new ListNode(0);
+        Head.next = pHead;  // 保存首节点，防止第一二个就重复
+        ListNode pre = Head;
+        ListNode last = Head.next;
+        
+        while(last != null){  // 循环条件
+            
+            // 这里是有重复
+            if(last.next != null && last.val == last.next.val){
+                while(last.next != null && last.val == last.next.val){
+                    last = last.next;
+                }
+                pre.next = last.next;
+                last = last.next;
+                
+            // 这里没有重复
+            }else{
+                pre = pre.next;
+                last = last.next;
+            }
+        }
+        return Head.next;
+    }
+}
+```
+
