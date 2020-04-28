@@ -220,6 +220,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [缺少分支内容的Git笔记](<https://www.cnblogs.com/Howlet/p/12026544.html>)
 * [Markdown](<https://www.cnblogs.com/Howlet/p/12024162.html>)
 * [Docker](<https://www.cnblogs.com/Howlet/p/12763209.html>)
+* [部署EOLINKER](<https://github.com/howlshit/HowlNote/blob/dev/Eolinker/%E9%83%A8%E7%BD%B2EOLINKER.md>)
 
 
 
