@@ -1,4 +1,4 @@
-### 1 
+## 1 
 
 假设连续正整数之和为S（至少包括两个数），列出该条件下的所有序列
 
@@ -551,7 +551,36 @@ public class Solution {
 
 ## 15
 
+找链表环入口
 
+```java
+// 设置快慢指针，若有环一定环中相遇，因在环中追赶
+// 从头节点和相遇节点同步走，一定环入口相遇,因相遇点就是环长度
+public class Solution {
+
+    public ListNode EntryNodeOfLoop(ListNode pHead){
+        ListNode fast = pHead;
+        ListNode slow = pHead;
+        
+        while(fast != null && fast.next != null){  // 环中相遇
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow){
+                break;
+            }
+        }
+        
+        if(fast == null || fast.next == null) return null;  // 判断是否有环
+        
+        slow = pHead;
+        while(slow != fast){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+}
+```
 
 
 
@@ -589,6 +618,146 @@ public class Solution {
             }
         }
         return Head.next;
+    }
+}
+```
+
+
+
+
+
+## 17
+
+找出中序遍历二叉树的下一个节点
+
+```java
+// 本题的next指向父节点。。。没看题的尴尬
+public class Solution {
+    public TreeLinkNode GetNext(TreeLinkNode pNode){
+        if(pNode == null) return null;
+        if(pNode.right != null){  // 当前节点有右子树，找后继节点
+            pNode = pNode.right;
+            while(pNode.left != null){
+                pNode = pNode.left;
+            }
+            return pNode;
+        }
+        while(pNode.next != null){  // 没右子树,则访问父节点
+            if(pNode.next.left == pNode){  // 当前节点是其父亲的左子树
+                return pNode.next;  // 按照中序去访问右子树了
+            }
+            pNode = pNode.next;  // 如果是其父亲的右子树，那么其父亲已经遍历完了，再向上找没被遍历左子树的
+        }
+        return null;  // 访问到根都没有，已经被遍历完了
+    }
+}
+```
+
+
+
+
+
+## 18
+
+判断一颗二叉树是否对称
+
+```java
+public class Solution {
+    boolean isSymmetrical(TreeNode pRoot){
+        if(pRoot == null) return true;
+        
+        return same(pRoot.left,pRoot.right);
+    }
+    private boolean same(TreeNode left,TreeNode right){
+        if(left == null && right == null) return true;
+        if(left == null || right == null) return false;
+        if(left.val != right.val) return false;
+        return same(left.left,right.right) && same(left.right,right.left);
+    }
+}
+```
+
+
+
+
+
+## 19 
+
+之子型打印二叉树
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class Solution {
+    public ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> rs = new ArrayList();
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        
+        if(pRoot == null) return rs;
+        queue.add(pRoot);
+        int count = 0;  // 记录层数奇偶
+        
+        while( !queue.isEmpty() ){
+            int size = queue.size();  // 此层的节点个数
+            ArrayList<Integer> temp = new ArrayList<>();  // 题目规定每层分开存储。。。
+            for(int i = 0; i < size; i++){  // size是这层的节点个数，通过for循环poll出此层全部节点
+                TreeNode node = queue.poll();
+                if(count%2 == 0){
+                    temp.add(node.val);
+                }else{
+                    temp.add(0,node.val);
+                }
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+            }
+            count++;
+            rs.add(temp);
+        }
+        return rs;
+    }
+}
+```
+
+
+
+
+
+## 20
+
+层次遍历二叉树（区别于每层独立存储，而且注解使用List还是Linked可以优化）
+
+```java
+import java.util.ArrayList;
+
+public class Solution {
+    ArrayList<ArrayList<Integer> > Print(TreeNode pRoot) {
+        ArrayList<ArrayList<Integer>> rs = new ArrayList();
+        ArrayList<TreeNode> queue = new ArrayList();
+        
+        if(pRoot == null) return rs;
+        queue.add(pRoot);
+        
+        while( !queue.isEmpty() ){
+            int size = queue.size();
+            ArrayList temp = new ArrayList();
+            for(int i = 0; i < size; i++){
+                TreeNode node = queue.remove(0);
+                temp.add(node.val);
+                if(node.left != null){
+                    queue.add(node.left);
+                }
+                if(node.right != null){
+                    queue.add(node.right);
+                }
+            }
+            rs.add(temp);
+        }
+        return rs;
     }
 }
 ```
