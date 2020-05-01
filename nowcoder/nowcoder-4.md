@@ -4,6 +4,39 @@
 
 
 
+## 2 
+
+二叉树查找树的非递归中序遍历，即排序
+
+```java
+// 思路：二叉搜索树中序遍历是排序的
+public class Solution {
+    int count = 0;  // 记录第几个
+    TreeNode KthNode(TreeNode pRoot, int k){
+        if(pRoot == null || k < 0) return null;  // 递归条件
+        
+        TreeNode left = KthNode(pRoot.left,k);
+        if(left != null) return left;
+        
+        count++;
+        if(count == k) return pRoot;
+        
+        TreeNode right = KthNode(pRoot.right,k);
+        if(right != null) return right;
+        
+        return null;
+    }
+}
+```
+
+```java
+
+```
+
+
+
+
+
 ## 3
 
 流数据中的中位数
