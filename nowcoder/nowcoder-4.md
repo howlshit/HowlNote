@@ -78,3 +78,65 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 4
+
+滑动窗口的最大值
+
+```java
+// 不推荐大顶堆方法，没效率
+
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+public class Solution {
+    public ArrayList<Integer> maxInWindows(int [] num, int size){
+        ArrayList<Integer> rs = new ArrayList();  // 窗口可为0,且可能大于数组长度
+        if(num == null || size < 1 || size > num.length) return rs;
+        
+        PriorityQueue<Integer> heap = new PriorityQueue<>((x, y) -> y - x);// 大顶堆顶部最大
+        for(int i = 0; i < size;i++){
+            heap.add(num[i]);  // 开始先滑动填满窗口，记录第一个最大值
+        }
+        rs.add(heap.peek());
+        
+        for(int i = 1; i < num.length-size+1; i++){  // 模拟窗口滑动，一次滑一格
+            heap.remove(num[i-1]);
+            heap.add(num[i+size-1]);
+            rs.add(heap.peek());
+        }
+        return rs;
+    }
+}
+```
+
+```java
+import java.util.ArrayList;
+import java.util.LinkedList;
+public class Solution {
+    public ArrayList<Integer> maxInWindows(int [] num, int size){
+        
+        ArrayList<Integer> rs = new ArrayList();
+        if(num == null || size <= 0 || num.length < size) return rs;
+        
+        LinkedList<Integer> qmax = new LinkedList<>();  // 双端队列，记录下标
+        for(int i = 0; i < num.length; i++){
+            
+            while(!qmax.isEmpty() && num[qmax.peekLast()] < num[i]){  // 不空对比才不报错
+                qmax.pollLast();  // 新进元素从队尾往对首比，保持对首最大
+            }
+            qmax.addLast(i);  // 队尾添加
+            if(qmax.peekFirst() == i - size){  // 队首超出窗口
+                qmax.pollFirst();
+            }
+            if(i >= size - 1){  // 开始时插入了窗口大小才，添加结果集，此时的队首是最大的
+                rs.add(num[qmax.peekFirst()]);
+            }
+        }
+        return rs;
+    }
+}
+```
+
