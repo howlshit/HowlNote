@@ -70,7 +70,7 @@ java中的socket是长连接，不通信就浪费资源
 ```java
 @Configuration  // 配置类，用来注册服务
 public class serverConfig {
-    @Bean  // 返回的bean会自动注册有@ServerEndpoint注解声明的endpoint
+    @Bean  // 返回的bean会自动注册进容器
     public ServerEndpointExporter serverEndpointExporter() {
         return new ServerEndpointExporter();
     }

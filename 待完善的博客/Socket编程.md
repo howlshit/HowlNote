@@ -24,7 +24,7 @@ Socket称为套接字，作为两台计算机间的连接对象。在传统的C/
 - 服务器端创建 ServerSocket 对象，表示通过服务器上的端口通信
 - 服务器端调用 ServerSocket.accept() ，该方法将阻塞至有客户端连接到服务器上给定的端口
 - 服务器端阻塞期间，客户端创建Socket对象，指定需要连接的服务器地址和端口号
-- 客户端的Socket类的构造函数试图将客户端连接到指定的服务器和端口号，若通信被建立，则在客户端创建一个Socket对象能够与服务器进行通信
+- 客户端的Socket类的构造函数试图将客户端连接到指定的服务器和端口号，若通信被建立，则在客户端创建一个Socket对象能够与服务器进行通信（期间有三次握手）
 - 服务器端，accept()方法返回服务器上一个新的socket引用，该socket连接到客户端的socket
 
 
@@ -164,7 +164,7 @@ public class MyServer {
 
 ## 4. 补充
 
-URL（Uniform Resource Locator）中文名为统一资源定位符，也称为网页地址，表示网页的资源
+URL（Uniform Resource Locator）中文名为统一资源定位符，也称为网页地址，表示网页的资源。而URI（Uniform Resource Identifier）统一资源标识符，注意和URL区别，他不局限于网页地址的表示，可用于电子邮件、电话号码等各种标识。简单来说URL是URI的子集
 
 
 
@@ -224,75 +224,3 @@ public static void main(String[] args) throws IOException {
 
 
 
-
-
-
-
-
-* 网络编程
-  * socket
-* WebSocket
-
-TCP和UDP是两套互不相同的接口，即可同时有80端口，但二者不一样
-
-
-
-
-
-
-
-
-
-
-
-```java
-public class test {
-	
-	public static void main(String[] args) throws IOException {
-		
-		// 服务器端套接字
-		ServerSocket ss = new ServerSocket(8080);
-		
-		// 开个线程运行服务器端套接字
-		new Thread( () -> {
-			try {
-				while(true){
-					// 阻塞，接收客户端连接请求，返回建立好的连接对象
-					Socket socket = ss.accept();
-					int length = 0;
-					byte[] bytes = new byte[1024];
-					// 获取输入流
-					InputStream in = socket.getInputStream();
-					while( (length = in.read(bytes)) != -1){
-						System.out.println(new String(bytes,0,length));
-					}
-					System.out.println("一个连接结束");
-				}
-			} catch (Exception e) {
-			}
-		}).start();
-		
-		// 开个线程运行客户端套接字
-		new Thread( () -> {
-			try {
-				Socket socket = new Socket("127.0.0.1",8080);
-				OutputStream out = socket.getOutputStream();
-				out.write( ("客户端1发送的消息为：" + new Date()).getBytes() );
-				socket.close();
-			} catch (Exception e) {
-			}
-		}).start();
-		
-		new Thread( () -> {
-			try {
-				Thread.sleep(1000);
-				Socket socket = new Socket("127.0.0.1",8080);
-				OutputStream out = socket.getOutputStream();
-				out.write( ("客户端2发送的消息为：" + new Date()).getBytes() );
-				socket.close();
-			} catch (Exception e) {
-			}
-		}).start();
-	}
-}
-```

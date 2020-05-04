@@ -174,3 +174,51 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 5
+
+矩阵中的路径
+
+```java
+// 思路：DFS的回溯法
+public class Solution {
+    public boolean hasPath(char[] matrix, int rows, int cols, char[] str){
+        
+        if(matrix == null || rows < 1 || cols < 1 || str == null) return false;  // 条件判断
+        
+        boolean[] flag = new boolean[matrix.length];  // 标志位，初始化为false、回溯法常用标志辅助
+        
+        for(int i = 0; i < rows; i++)  // DFS开始
+            for(int j = 0 ; j < cols; j++)
+                 if( judge(matrix,i,j,rows,cols,flag,str,0) ) return true;
+                     
+        return false;
+    }
+    
+    private boolean judge(char[] matrix,int i,int j,int rows,int cols,boolean[] flag,char[] str,int k){
+        
+        int index = i * cols + j;  // 计算矩阵的下标
+        
+        // 注意下标越界，
+        if(i < 0 || j < 0 || i > rows-1 || j > cols-1 || flag[index] == true) return false;
+        if(matrix[index] != str[k]) return false;
+        if(k == str.length-1) return true;
+        
+        flag[index] = true;  // 标志走过
+        
+        if( judge(matrix,i-1,j,rows,cols,flag,str,k+1) ||
+            judge(matrix,i+1,j,rows,cols,flag,str,k+1) ||
+            judge(matrix,i,j-1,rows,cols,flag,str,k+1) ||
+            judge(matrix,i,j+1,rows,cols,flag,str,k+1)  ){
+            return true;
+        }
+        
+        flag[index] = false;  // 回溯
+        return false;
+    }
+}
+```
+
