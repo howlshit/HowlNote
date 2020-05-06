@@ -47,6 +47,8 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [BIO，NIO确定不来看一下？](<https://www.cnblogs.com/Howlet/p/12286670.html>)
 * [容易忽略的时间API](<https://www.cnblogs.com/Howlet/p/12290469.html>)
 * [调试专家JUnit](<https://www.cnblogs.com/Howlet/p/12382004.html>)
+* [SPI机制](<https://www.cnblogs.com/Howlet/p/12836796.html>)
+* [按值传递还是引用传递？](<https://www.cnblogs.com/Howlet/p/12803736.html>)
 * [Stream的起飞操作](<https://www.cnblogs.com/Howlet/p/12402991.html>)
 * [RPC的简单实现](<https://www.cnblogs.com/Howlet/p/12367745.html>)
 * [学不会的JVM](<https://www.cnblogs.com/Howlet/p/12106762.html>)
