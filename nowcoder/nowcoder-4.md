@@ -222,3 +222,96 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 6
+
+机器人运动范围
+
+```java
+public class Solution {
+    int count = 0;
+    public int movingCount(int threshold, int rows, int cols){
+        boolean[] pass = new boolean[rows * cols];
+        movingCount(threshold,0,0,rows,cols,pass);
+        return count;
+    }
+    
+    public void movingCount(int threshold, int i, int j,int rows, int cols,boolean[] pass){
+        int index = i * cols + j;
+        if(i < 0 || j < 0 || i >= rows || j >= cols || pass[index] == true) return ;
+        if(helper(i,j) <= threshold){
+            count++;
+            pass[index]=true;
+        }else{
+            pass[index]=false;
+            return;
+        }
+        movingCount(threshold, i-1, j,rows,cols,pass);
+        movingCount(threshold, i+1, j,rows,cols,pass);
+        movingCount(threshold, i, j-1,rows,cols,pass);
+        movingCount(threshold, i, j+1,rows,cols,pass);
+    }
+
+    // 计算是否坐标数值大于K
+    public int helper(int i,int j){
+        int sum = 0;
+        do{
+            sum += i % 10;
+        }while((i = i / 10) > 0);
+         
+        do{
+            sum += j % 10;
+        }while((j = j / 10) > 0);
+        return sum;
+    }
+}
+```
+
+
+
+
+
+## 7
+
+割绳子
+
+```java
+// 贪心
+// 数学运算分成2，3乘积最大，其中3要最多
+public class Solution {
+    public int cutRope(int target) {
+        
+        if(target == 2){
+            return 1;
+        }else if(target == 3){
+            return 2;
+        }
+        
+        // 分成多少个3
+        int timesOf3 = target / 3;
+        
+        // 不是3倍数时，分为余1和余2
+        // 若余1：则取一个3及余数1凑成2 * 2
+        // 若余2：直接参数乘法运算
+        if(target - timesOf3 * 3 == 1){
+            timesOf3--;
+        }
+        if(target - timesOf3 * 3 == 2){
+            // donothing;
+        }
+        
+        // 算出2有多少个
+        int timesOf2 = (target - timesOf3 * 3) / 2;
+        
+        return (int)(Math.pow(3, timesOf3))*(int)(Math.pow(2, timesOf2));
+    }
+}
+```
+
+```java
+// 动态规划
+```
+
