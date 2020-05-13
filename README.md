@@ -32,6 +32,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 ### Java基础
 
+* [枚举](<https://www.cnblogs.com/Howlet/p/12881207.html>)
 * [补码反码与位运算](<https://www.cnblogs.com/Howlet/p/12706396.html>)
 * [数组工具类Arrays](<https://www.cnblogs.com/Howlet/p/12115625.html>)
 * [常被提问的String](<https://www.cnblogs.com/Howlet/p/12114605.html>)
@@ -184,6 +185,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [DFS和BFS](<https://www.cnblogs.com/Howlet/p/12711633.html>)
 * [小根堆的实现](<https://www.cnblogs.com/Howlet/p/12720887.html>)
 * [神奇的布隆过滤器](<https://www.cnblogs.com/Howlet/p/12688707.html>)
+* [BitMap](<https://www.cnblogs.com/Howlet/p/12875541.html>)
 
 
 
