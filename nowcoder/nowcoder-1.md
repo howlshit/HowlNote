@@ -181,3 +181,188 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 5
+
+两个栈模拟队列
+
+```java
+import java.util.Stack;
+
+public class Solution {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+    
+    public void push(int node) {
+        while(!stack2.isEmpty()){
+            stack1.push(stack2.pop());
+        }
+        stack1.push(node);
+    }
+    
+    public int pop() {
+        while(!stack1.isEmpty()){
+            stack2.push(stack1.pop());
+        }
+        return stack2.pop();
+    }
+}
+```
+
+
+
+
+
+## 6
+
+旋转数组的最小数字
+
+```java
+// 非递减，即递增有重复
+// 用二分法：最后第一个指针指向分界点的前一个，第二个指针指向分界点的后一个，即二者相邻，那么
+// 第二个指针将指向最小元素
+import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+    
+        if(array.length == 0) return 0;
+        
+        int low = 0;
+        int high = array.length - 1;
+        int mid = 0;
+        
+        while(low < high){
+            mid = low + (high-low)/2;
+            if(array[low] < array[mid]){
+                low = mid;
+            }else if(array[mid] < array[high]){
+                high = mid;
+            }else {  // 重复元素无法判断是分界前后，只能顺序找
+                low++;  // 且最后也使指针指向分界的后一个
+            }
+        }
+        return array[low];
+    }
+}
+```
+
+
+
+
+
+## 7
+
+斐波那契数列
+
+```java
+// 迭代法
+public class Solution {
+    public int Fibonacci(int n) {
+
+        if(n == 0) return 0;
+        if(n == 1) return 1;
+        
+        int a = 0;
+        int b = 1;
+        int c = 0;
+        
+        while(n > 1){  // 第一项1，上面已经给出了
+            c = a + b;
+            a = b;
+            b = c;
+            n--;
+        }
+        return c;
+    }
+}
+```
+
+```java
+// 递归
+public class Solution {
+    public int Fibonacci(int n) {
+        if(n == 0) return 0;
+        if(n == 1) return 1;
+        return Fibonacci(n-1) + Fibonacci(n-2);
+    }
+}
+```
+
+
+
+
+
+## 8
+
+跳台阶：注重思想
+
+迭代没什么好说的
+
+递归：只剩最后一步时，要么是跳1阶，要么是跳2阶
+
+```java
+// 设n个台阶有f(n)种走法
+// 只剩最后一步时，要么是跳1阶，要么是跳2阶
+// 最后一步跳1阶，即之前有n-1个台阶，据前面的假设，即n-1个台阶有f(n-1)种走法
+// 最后一步跳2阶，即之前有n-2个台阶，据前面的假设，即n-2个台阶有f(n-2)种走法
+// 总结规律：n个台阶的走法等于前两种情况的走法之和即 f(n) = f(n-1)+f(n-2)
+// 变相斐波那契数列
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 20
+
+用两个栈求最小元素----O(1)
+
+```java
+import java.util.Stack;
+
+public class Solution {
+    
+    Stack<Integer> data = new Stack();
+    Stack<Integer> min = new Stack();
+
+    public void push(int node) {
+        data.push(node);
+        if(min.isEmpty() || node < min.peek()){
+            min.push(node);
+        }
+    }
+    
+    public void pop() {
+        if(data.peek() == min.peek()){
+            min.pop();
+        }
+        data.pop();
+    }
+    
+    public int top() {
+        return data.peek();
+    }
+    
+    public int min() {
+        return min.peek();
+    }
+}
+```
+
