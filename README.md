@@ -122,7 +122,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [SSM的疑难杂症--持续更新](<https://www.cnblogs.com/Howlet/p/12431642.html>)
 * [SpringBoot之你好世界](<https://www.cnblogs.com/Howlet/p/12189499.html>)
 * [SpringBoot进阶](<https://www.cnblogs.com/Howlet/p/12694840.html>)
-* [为了安全的SpringSecurity](<https://www.cnblogs.com/Howlet/p/12749831.html>)
+* [安全的SpringSecurity](<https://www.cnblogs.com/Howlet/p/12749831.html>)
 
 
 
@@ -163,6 +163,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [评论功能的三种实现](<https://www.cnblogs.com/Howlet/p/12441508.html>)
 * [日常的站内信](<https://www.cnblogs.com/Howlet/p/12450520.html>)
 * [SSO没听过吧](<https://www.cnblogs.com/Howlet/p/12717769.html>)
+* [统一响应数据的封装](<https://www.cnblogs.com/Howlet/p/12912635.html>)
 
 
 
