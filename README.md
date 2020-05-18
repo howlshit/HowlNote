@@ -186,7 +186,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [DFS和BFS](<https://www.cnblogs.com/Howlet/p/12711633.html>)
 * [小根堆的实现](<https://www.cnblogs.com/Howlet/p/12720887.html>)
 * [神奇的布隆过滤器](<https://www.cnblogs.com/Howlet/p/12688707.html>)
-* [BitMap](<https://www.cnblogs.com/Howlet/p/12875541.html>)
+* [更神奇的BitMap](<https://www.cnblogs.com/Howlet/p/12875541.html>)
 
 
 
@@ -206,8 +206,8 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [什么是代理模式？](<https://www.cnblogs.com/Howlet/p/12023801.html>)
 * [固定顺序的模板模式](<https://www.cnblogs.com/Howlet/p/12287072.html>)
 * [JDBC使用的桥接模式](<https://www.cnblogs.com/Howlet/p/12311094.html>)
-* [JaveWeb中Listener涉及的监听器模式](<https://www.cnblogs.com/Howlet/p/12325646.html>)
-* [JavaWeb中Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
+* [Listener涉及的监听器模式](<https://www.cnblogs.com/Howlet/p/12325646.html>)
+* [Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
 * [Spring中四处可见的回调模式](<https://www.cnblogs.com/Howlet/p/12325363.html>)
 * [SpringMVC中的适配器模式](<https://www.cnblogs.com/Howlet/p/12408387.html>)
 
@@ -283,12 +283,15 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [《图解TCP/IP》]()
 * [《图解HTTP》]()
 * [《啊哈算法》]()
+* [《Java程序员面试笔试宝典》]()
 * 公众号
 * [程序员小灰]()
 * [Java3y]()
 * [JavaGuide]()
 * 网站
 * [笔者的Github](<https://github.com/howlshit/HowlNote>)
+* [牛客网](<https://www.nowcoder.com/>)
+* [leetCode](<https://leetcode-cn.com/>)
 * [查看Java8的API](<http://www.matools.com/api/java8>)
 * [Java全栈知识体系](<https://www.pdai.tech/md/java/basic/java-basic-lan-basic.html>)
 * [Linux命令查询](<https://man.linuxde.net/xinshoumingling>)
