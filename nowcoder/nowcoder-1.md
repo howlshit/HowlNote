@@ -316,6 +316,119 @@ public class Solution {
 
 
 
+## 9
+
+跳台阶II，式子推导出来后看怎么实现迭代思想
+
+```java
+// n级台阶，第一步有n种跳法：跳1级、跳2级、……、到跳n级
+// 跳1级，剩下n-1级，则剩下跳法是f(n-1)
+// 跳2级，剩下n-2级，则剩下跳法是f(n-2)
+// 所以f(n) = f(n-1)+f(n-2)+...+f(1)
+// 因为f(n-1) = f(n-2)+f(n-3)+...+f(1)
+// 所以f(n) = 2*f(n-1)
+
+public class Solution {
+    public int JumpFloorII(int target) {
+        int temp = 1;
+        while(target > 1){  // 第一个已给出{
+            temp *= 2;
+            target--;
+        }
+        return temp;
+    }
+}
+```
+
+
+
+
+
+## 10
+
+矩形覆盖
+
+```java
+// 逆序思想：最后一步有两种情况
+// OO		OO
+// XX		OO
+// XX		XX
+// ..		..
+// XX		XX
+// 第一种情况:阴影部分的n-1块矩形有多少种覆盖方法，为f(n-1);
+// 第二种情况:阴影部分的n-2块矩形有多少种覆盖方法，为f(n-2);
+// 故f(n) = f(n-1) + f(n-2)，还是一个斐波那契数列
+
+public class Solution {
+    public int RectCover(int target) {
+        if(target == 0) return 0;
+        if(target == 1) return 1;
+        int a = 1,b = 1,c = 0;
+        while(target > 1){
+            c = a + b;
+            a = b;
+            b = c;
+            target--;
+        }
+        return c;
+    }
+}
+```
+
+
+
+
+
+## 11
+
+求整数的二进制中1的个数
+
+```java
+// 逐位比较
+public class Solution {
+    public int NumberOf1(int n) {
+        int cnt = 0;
+        while(n != 0){  // 不是大于0，因为有负数
+            cnt += n & 1;
+            n >>>= 1;
+        }
+        return cnt;
+    }
+}
+```
+
+```java
+// 最优解
+// 一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0
+// 那么一个整数的二进制有多少个1，就可以进行多少次这样的操作
+public class Solution {
+    public int NumberOf1(int n) {
+        int cnt = 0;
+        while(n != 0){
+            n = n & (n-1);
+            cnt++;
+        }
+        return cnt;
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
