@@ -417,11 +417,196 @@ public class Solution {
 
 
 
+## 12
+
+数值的整数次方
+
+```java
+// 连乘思路：O(n)
+public class Solution {
+    public double Power(double base, int exponent) {
+        double rs = 1;
+        for(int i = 0; i < Math.abs(exponent); i++){
+            rs *= base;  // 连乘
+        }
+        if(exponent < 0){
+            rs = 1 / rs;  // 负数次幂，直接倒数
+        }
+        return rs;
+  }
+}
+```
+
+```java
+// 快速幂：log(n)
+// 11可转化为二进制次幂：11 = 1011 = 2³×1 + 2²×0 + 2¹×1 + 2º×1 = 2³×1 + 2¹×1 + 2º×1
+// base *= base 保持累乘的作用：base-->base2-->base4-->base8-->base16
+// 那么化简后：a¹¹ = a^(2º+2¹+2³) = a^(1+2+8)
+// 那么 a¹¹ = a¹ * a² * a^8 = base * base^2 * base^8
+
+public class Solution {
+    public double Power(double base, int exponent) {
+        
+        double rs = 1;  // 保存结果
+        int power = Math.abs(exponent);  // 幂的绝对值
+        
+        // 快速幂核心
+        while(power != 0){
+            if( (power & 1) == 1 ){  // 幂的二进制当前位为1即有效，结果相乘
+                rs *= base;
+            }
+            power >>>= 1;      // 幂右移
+            base *= base;  // 保持累乘，后面利用
+        }
+        
+        if(exponent < 0){  // 负次幂，结果取倒数
+            rs = 1 / rs;
+        }
+        return rs;
+  }
+}
+```
 
 
 
 
 
+## 13
+
+调整数组顺序，奇数位于偶数前面，且相对顺序不变
+
+```java
+// 分治，思路明了
+import java.util.ArrayList;
+public class Solution {
+    public void reOrderArray(int [] array) {
+        ArrayList<Integer> list = new ArrayList();
+        
+        for(int i = 0; i < array.length; i++){
+            if(array[i] % 2 != 0){
+                list.add(array[i]);
+            }
+        }
+        
+        for(int i = 0; i < array.length; i++){
+            if(array[i] % 2 == 0){
+                list.add(array[i]);
+            }
+        }
+        
+        for(int i = 0; i < array.length; i++){
+            array[i] = (Integer)list.get(i);
+        }
+    }
+}
+```
+
+```java
+// 相对位置不变：保持稳定性即可，冒泡、直接插入等
+// 类似冒泡算法，前偶后奇数就交换：从后往前
+public class Solution {
+    public void reOrderArray(int [] array) {
+        for(int i = 0; i < array.length; i++){
+            for(int j = array.length-1; j > i; j--){
+               if(array[j] % 2 == 1 && array[j-1] % 2 == 0){  // 整体奇数前移
+                   int temp = array[j];
+                   array[j] = array[j-1];
+                   array[j-1] = temp;
+               }
+            }
+        }
+    }
+}
+```
+
+
+
+
+
+## 14
+
+返回链表倒数第K个节点
+
+```java
+// 设置快慢指针
+public class Solution {
+    public ListNode FindKthToTail(ListNode head,int k) {
+        
+        ListNode node,pre;
+        node = pre = head;
+        
+        for(int i = 1; i <= k; i++){  // 先驱走k步
+            if(pre == null) return null;  // 链表长没有k步长
+            pre = pre.next;
+        }
+        
+        while(pre != null){  // 同步走
+            pre = pre.next;
+            node = node.next;
+        }
+        return node;
+    }
+}
+```
+
+
+
+
+
+## 15
+
+反转链表
+
+```java
+// 需要三个指针
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+        
+        ListNode pre,next;  // 如果head为空，那么next.next就空指针异常
+        pre = next = null;  // 所以只能在head不为空的循环内next了
+        
+        while(head != null){  // head表示当前节点
+            next = head.next;  // 上面说的next
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;  // 这里注意：上面的循环结束条件为head为空，那么前驱节点才是真正的头节点
+    }
+}
+```
+
+
+
+
+
+## 16
+
+合并链表
+
+```java
+public class Solution {
+    public ListNode Merge(ListNode list1,ListNode list2) {
+        ListNode head,node;  // 要有一个表头head来返回，node保存节点，防止断链
+        head = node = new ListNode(0);
+        
+        while(list1 != null && list2 != null){
+            if(list1.val < list2.val){
+                node.next = list1;
+                node = node.next;  // 指针移动
+                list1 = list1.next;
+            }else{
+                node.next = list2;
+                node = node.next;
+                list2 = list2.next;
+            }
+        }
+        if(list1 == null) node.next = list2;
+        if(list2 == null) node.next = list1;
+        return head.next;
+    }
+}
+```
 
 
 
