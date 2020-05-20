@@ -60,7 +60,7 @@ Stream.of(1,2,3);
 我们最常用集合来创建Stream流，**注意不支持Map集合**
 
 ```java
-new ArrayList( Arrays.asList("11111","AAAA","5") );
+new ArrayList( Arrays.asList("11111","AAAA","5") ).stream();
 new HashSet().stream();
 ```
 
