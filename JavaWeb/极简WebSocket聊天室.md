@@ -4,29 +4,70 @@
 
 ## 1. WebSocket
 
-
-
-* 为什么需要WebSocket？
-
-解决HTTP协议的某些缺陷 ---- 通信只能由客户端发起。WebSokcet可以主动向客户端推送消息，是全双工通讯，只需要建立一次连接，就可以一直保持连接状态。
+WebSocket 是 HTML5 开始提供的可在单个 TCP 连接上进行**全双工**通讯的协议，其允许服务端主动向客户端**推送**数据，浏览器和服务器只需要完成**一次握手**，两者之间就直接可以创建持久性的连接，并进行双向数据传输
 
 
 
-WebSocket建立在HTTP上，但属于新的独立协议，只是其建立连接的过程需要用到HTTP协议
-
-协议标识符为ws：`ws://www.baidu.com`
-
-实现了浏览器与服务器全双工的通信协议
-
-java中的socket是长连接，不通信就浪费资源
+> 注意：WebSocket 和 HTTP 的区别，WebSocket虽建立在HTTP上，但属于新的独立协议，只是其建立连接的过程需要用到HTTP协议
 
 
 
+为什么需要WebSocket？
+
+解决HTTP协议的某些缺陷 ---- 通信只能由客户端发起。很多网站为了实现推送技术，使用Ajax轮询，这样在没有新消息的情况下客户端也要发送请求，势必造成服务器的负担，而WebSokcet可以主动向客户端推送消息，是全双工通讯，能更好的节省服务器资源和带宽
+
+
+
+### 特点：
+
+* 协议标识符为ws：比如 `ws://www.baidu.com`
+* 无同源策略限制
+* 更好的二进制支持：可以发送字符串和二进制
+* 握手阶段用HTTP
+* 数据格式轻量：WebSocket的服务端到客户端的数据包头只有2到10字节、HTTP每次都需要携带完整头部，
 
 
 
 
 
+#### 连接过程：
+
+一：客服端请求协议升级
+
+```html
+GET / HTTP/1.1
+Host: localhost:8080
+Origin: http://127.0.0.1:8080
+Connection: Upgrade  					    // 表示要升级协议
+Upgrade: websocket    						// 表示升级的协议是websocket
+Sec-WebSocket-Version: 13  					// websocket版本号
+Sec-WebSocket-Key: w4v7O6xFTi36lqcgctw==    // 随机生成，防止非故意的错误，连接错了
+```
+
+
+
+二：服务器响应
+
+```html
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket          						 // 表示可以升级对应的协议
+Connection: Upgrade
+Sec-WebSocket-Accept: HSmrc0sMlYUmm5OPpG2HaGWk=      // 根据客户端key用函数计算出来
+```
+
+
+
+三：此后开始使用WebSocket协议
+
+
+
+
+
+#### 补充：
+
+ajax轮询：让浏览器间隔几秒就发送一次请求，来获取最新的响应
+
+long poll：保持长连接来阻塞轮询。客户端发起请求不会立刻响应，而是有数据才返回然后关闭连接，然后客户端再次发起long poll周而复始
 
 
 

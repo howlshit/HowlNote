@@ -164,6 +164,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [日常的站内信](<https://www.cnblogs.com/Howlet/p/12450520.html>)
 * [SSO没听过吧](<https://www.cnblogs.com/Howlet/p/12717769.html>)
 * [统一响应数据的封装](<https://www.cnblogs.com/Howlet/p/12912635.html>)
+* [极简WebSocket聊天室](<https://www.cnblogs.com/Howlet/p/12934444.html>)
 
 
 
