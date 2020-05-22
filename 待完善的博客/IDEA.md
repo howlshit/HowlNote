@@ -23,3 +23,9 @@ IDEA
 自动构造 alt + insert
 
 导包 alt + shift + enter
+
+重写父类方法 ctrl + O
+
+
+
+打开实现类 ctrl + alt + B  /  ctrl + H

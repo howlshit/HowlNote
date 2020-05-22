@@ -3,7 +3,7 @@
 
 <p align="center">
 <a href="#" target="_blank">
-<img src="https://images.cnblogs.com/cnblogs_com/Howlet/1579506/o_200308035421logo.png" width="150px"/>
+<img src="https://images.cnblogs.com/cnblogs_com/Howlet/1579506/o_200308035421logo.png" width="180px"/>
 </a>
 </p>
 
@@ -32,18 +32,24 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 ### Java基础
 
+* [枚举](<https://www.cnblogs.com/Howlet/p/12881207.html>)
+* [补码反码与位运算](<https://www.cnblogs.com/Howlet/p/12706396.html>)
 * [数组工具类Arrays](<https://www.cnblogs.com/Howlet/p/12115625.html>)
 * [常被提问的String](<https://www.cnblogs.com/Howlet/p/12114605.html>)
 * [List集合源码分析](<https://www.cnblogs.com/Howlet/p/12003389.html>)
-* [Map，List集合源码分析](<https://www.cnblogs.com/Howlet/p/12204261.html>)
+* [Map，Set集合源码分析](<https://www.cnblogs.com/Howlet/p/12204261.html>)
 * [线程的基本方法](<https://www.cnblogs.com/Howlet/p/12015259.html>)
 * [线程的锁](<https://www.cnblogs.com/Howlet/p/12230652.html>)
 * [线程的池](<https://www.cnblogs.com/Howlet/p/12233870.html>)
+* [线程的三个同步器](<https://www.cnblogs.com/Howlet/p/12685072.html>)
 * [线程的补充](<https://www.cnblogs.com/Howlet/p/12234203.html>)
 * [隐藏Boss之反射机制](<https://www.cnblogs.com/Howlet/p/12095514.html>)
 * [IO流](<https://www.cnblogs.com/Howlet/p/12033337.html>)
 * [BIO，NIO确定不来看一下？](<https://www.cnblogs.com/Howlet/p/12286670.html>)
 * [容易忽略的时间API](<https://www.cnblogs.com/Howlet/p/12290469.html>)
+* [调试专家JUnit](<https://www.cnblogs.com/Howlet/p/12382004.html>)
+* [SPI机制](<https://www.cnblogs.com/Howlet/p/12836796.html>)
+* [按值传递还是引用传递？](<https://www.cnblogs.com/Howlet/p/12803736.html>)
 * [Stream的起飞操作](<https://www.cnblogs.com/Howlet/p/12402991.html>)
 * [RPC的简单实现](<https://www.cnblogs.com/Howlet/p/12367745.html>)
 * [学不会的JVM](<https://www.cnblogs.com/Howlet/p/12106762.html>)
@@ -79,13 +85,15 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### Mysql
+### 数据库
 
-* [入门的基础语句](<https://www.cnblogs.com/Howlet/p/12047596.html>)
-* [JDBC具体操作](<https://www.cnblogs.com/Howlet/p/12053393.html>)
-* [sql语句优化](<https://www.cnblogs.com/Howlet/p/12051990.html>)
-* [简单了解锁机制](<https://www.cnblogs.com/Howlet/p/12051757.html>)
-* [如何配置C3P0](<https://www.cnblogs.com/Howlet/p/12063609.html>)
+* [Mysql入门的基础语句](<https://www.cnblogs.com/Howlet/p/12047596.html>)
+* [Mysql的JDBC具体操作](<https://www.cnblogs.com/Howlet/p/12053393.html>)
+* [Mysql的sql语句优化](<https://www.cnblogs.com/Howlet/p/12051990.html>)
+* [Mysql简单了解锁机制](<https://www.cnblogs.com/Howlet/p/12051757.html>)
+* [Mysql如何配置C3P0](<https://www.cnblogs.com/Howlet/p/12063609.html>)
+* [Redis基本操作](<https://www.cnblogs.com/Howlet/p/12669676.html>)
+* [Redis升级之路](<https://www.cnblogs.com/Howlet/p/12686522.html>)
 
 
 
@@ -97,7 +105,7 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### 常见框架
+### SpringFramework
 
 * [Mybatis青铜](<https://www.cnblogs.com/Howlet/p/11973432.html>)
 * [Mybatis白银](<https://www.cnblogs.com/Howlet/p/11979637.html>)
@@ -107,11 +115,28 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [Spring之AOP](<https://www.cnblogs.com/Howlet/p/11983022.html>)
 * [Spring总结](<https://www.cnblogs.com/Howlet/p/12389510.html>)
 * [SpringMVC入门](<https://www.cnblogs.com/Howlet/p/11988838.html>)
-* [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
 * [SpringMVC参数校验](<https://www.cnblogs.com/Howlet/p/12426887.html>)
+* [SprngMVC总结](<https://www.cnblogs.com/Howlet/p/12399045.html>)
 * [整合SSM教程](<https://www.cnblogs.com/Howlet/p/12421437.html>)
+* [SSM动态切换数据源](<https://www.cnblogs.com/Howlet/p/12446603.html>)
 * [SSM的疑难杂症--持续更新](<https://www.cnblogs.com/Howlet/p/12431642.html>)
-* [SpringBoot使用](<https://www.cnblogs.com/Howlet/p/12189499.html>)
+* [SpringBoot之你好世界](<https://www.cnblogs.com/Howlet/p/12189499.html>)
+* [SpringBoot进阶](<https://www.cnblogs.com/Howlet/p/12694840.html>)
+* [安全的SpringSecurity](<https://www.cnblogs.com/Howlet/p/12749831.html>)
+
+
+
+
+
+<br>
+
+
+
+
+
+### 中间件
+
+* [RabbitMQ](<https://www.cnblogs.com/Howlet/p/12784391.html>)
 
 
 
@@ -126,13 +151,19 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 ### 小功能实现
 
 * [伪随机数](<https://www.cnblogs.com/Howlet/p/12319487.html>)
+* [绘制验证码](<https://www.cnblogs.com/Howlet/p/12753955.html>)
 * [bean转json-FastJson](<https://www.cnblogs.com/Howlet/p/12032264.html>)
+* [常见操作之重写equal、hashCode](<https://www.cnblogs.com/Howlet/p/12259639.html>)
 * [发送简单邮箱-javax.mail](<https://www.cnblogs.com/Howlet/p/12156169.html>)
 * [日志记录-Log4j](<https://www.cnblogs.com/Howlet/p/12067052.html>)
 * [自己的jar包](<https://www.cnblogs.com/Howlet/p/12248555.html>)
 * [文件上传-Fileupload](<https://www.cnblogs.com/Howlet/p/12057441.html>)
 * [邮箱激活账号-SpringBoot](<https://www.cnblogs.com/Howlet/p/12198922.html>)
+* [Github第三方登录](<https://www.cnblogs.com/Howlet/p/12811097.html>)
 * [评论功能的三种实现](<https://www.cnblogs.com/Howlet/p/12441508.html>)
+* [日常的站内信](<https://www.cnblogs.com/Howlet/p/12450520.html>)
+* [SSO没听过吧](<https://www.cnblogs.com/Howlet/p/12717769.html>)
+* [统一响应数据的封装](<https://www.cnblogs.com/Howlet/p/12912635.html>)
 
 
 
@@ -152,6 +183,10 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [没有内容的B+-树](<https://www.cnblogs.com/Howlet/p/12255418.html>)
 * [同上没有内容的哈希表](<https://www.cnblogs.com/Howlet/p/12262688.html>)
 * [不可不看的9种排序算法](<https://www.cnblogs.com/Howlet/p/12319644.html>)
+* [DFS和BFS](<https://www.cnblogs.com/Howlet/p/12711633.html>)
+* [小根堆的实现](<https://www.cnblogs.com/Howlet/p/12720887.html>)
+* [神奇的布隆过滤器](<https://www.cnblogs.com/Howlet/p/12688707.html>)
+* [更神奇的BitMap](<https://www.cnblogs.com/Howlet/p/12875541.html>)
 
 
 
@@ -169,7 +204,11 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [生产工具之工厂模式](<https://www.cnblogs.com/Howlet/p/12019108.html>)
 * [外包一层的装饰者模式](<https://www.cnblogs.com/Howlet/p/12020604.html>)
 * [什么是代理模式？](<https://www.cnblogs.com/Howlet/p/12023801.html>)
-* [JavaWeb中Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
+* [固定顺序的模板模式](<https://www.cnblogs.com/Howlet/p/12287072.html>)
+* [JDBC使用的桥接模式](<https://www.cnblogs.com/Howlet/p/12311094.html>)
+* [Listener涉及的监听器模式](<https://www.cnblogs.com/Howlet/p/12325646.html>)
+* [Filter的责任链模式](<https://www.cnblogs.com/Howlet/p/12323712.html>)
+* [Spring中四处可见的回调模式](<https://www.cnblogs.com/Howlet/p/12325363.html>)
 * [SpringMVC中的适配器模式](<https://www.cnblogs.com/Howlet/p/12408387.html>)
 
 
@@ -186,6 +225,8 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 * [缺少分支内容的Git笔记](<https://www.cnblogs.com/Howlet/p/12026544.html>)
 * [Markdown](<https://www.cnblogs.com/Howlet/p/12024162.html>)
+* [Docker](<https://www.cnblogs.com/Howlet/p/12763209.html>)
+* [部署EOLINKER](<https://github.com/howlshit/HowlNote/blob/dev/Eolinker/%E9%83%A8%E7%BD%B2EOLINKER.md>)
 
 
 
@@ -197,6 +238,61 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 
 
 
-### 网络基础
+### 网络基础、操作系统
 
-* 一片空白，立flag要写下几篇笔记
+* [初探Linux](<https://www.cnblogs.com/Howlet/p/12464994.html>)
+* [Linux常见命令](https://www.cnblogs.com/Howlet/p/12463083.htmlLin)
+* [三次握手四次挥手](<https://www.cnblogs.com/Howlet/p/12793401.html>)
+
+
+
+
+
+<br>
+
+
+
+
+
+### 手撕168题
+
+* [nowcoder-1]()
+* [nowcoder-2]()
+* [nowcoder-3]()
+* [leetcode-1]()
+* [leetcode-2]()
+* [leetcode-3]()
+
+
+
+
+
+<br>
+
+
+
+
+
+### 推荐书籍、公众号、网站
+
+* 书籍
+* [《学校发的教科书》]()
+* [《Java核心技术卷一》]()
+* [《Java并发编程之美》]()
+* [《深入理解Java虚拟机》]()
+* [《图解TCP/IP》]()
+* [《图解HTTP》]()
+* [《啊哈算法》]()
+* [《Java程序员面试笔试宝典》]()
+* 公众号
+* [程序员小灰]()
+* [Java3y]()
+* [JavaGuide]()
+* 网站
+* [笔者的Github](<https://github.com/howlshit/HowlNote>)
+* [牛客网](<https://www.nowcoder.com/>)
+* [leetCode](<https://leetcode-cn.com/>)
+* [查看Java8的API](<http://www.matools.com/api/java8>)
+* [Java全栈知识体系](<https://www.pdai.tech/md/java/basic/java-basic-lan-basic.html>)
+* [Linux命令查询](<https://man.linuxde.net/xinshoumingling>)
+* [笔者的阿里云服务器推广链接](https://www.aliyun.com/minisite/goods?userCode=aec667dr)
