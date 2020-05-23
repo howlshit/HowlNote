@@ -612,17 +612,105 @@ public class Solution {
 
 
 
+## 17
+
+判断是否某树的子结构（两个递归，一个遍历树1，一个用来对比）
+
+```java
+public class Solution {
+    public boolean HasSubtree(TreeNode root1,TreeNode root2) {
+       
+        boolean flag = false;
+        if(root1 == null || root2 == null) return false;
+        
+        if(root1.val == root2.val){  // 递归遍历，遇到根相同的
+            flag = recur(root1,root2);  // 以当前根为起点，再遍历对比
+        }
+        
+        if(!flag){  // 这里记住是!flag，即没找到相同的，找到就不用进来遍历了
+            flag = HasSubtree(root1.left,root2);
+        }
+        if(!flag){
+            flag = HasSubtree(root1.right,root2);
+        }
+        return flag;
+    }
+    private boolean recur(TreeNode root1,TreeNode root2){
+        if(root2 == null) return true;  // 一定要先判断tree2
+        if(root1 == null) return false;
+        if(root1.val != root2.val) return false;
+        return recur(root1.left,root2.left) && recur(root1.right,root2.right);
+    }
+}
+```
 
 
 
 
 
+## 18
+
+转变成二叉树的镜像
+
+```java
+public class Solution {
+    public void Mirror(TreeNode root) {
+        
+        if(root == null) return ;  // 递归出口
+        swap(root);  // 交换根节点的左右孩子
+        Mirror(root.left);  // 孩子的孩子也交换
+        Mirror(root.right);  // 孩子的孩子也交换
+    }
+    private void swap(TreeNode root){  
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+    }
+}
+```
 
 
 
 
 
+## 19
 
+螺旋打印矩阵
+
+```java
+// 上下左右，四个边界分别为l,r,t,b
+// 思路1：按题意打印
+import java.util.ArrayList;
+public class Solution {
+    public ArrayList<Integer> printMatrix(int [][] matrix) {
+        
+       ArrayList<Integer> list = new ArrayList();
+        
+       int left = 0, right = matrix[0].length - 1;  // 四个边界
+       int top = 0, bottom = matrix.length - 1;
+        
+       while(true){  // 无限循环遍历，出口在内部的边界判断
+           
+           for(int i = left; i <= right; i++) list.add(matrix[top][i]);
+           if(++top > bottom) break;
+           
+           for(int i = top; i <= bottom; i++) list.add(matrix[i][right]);
+           if(left > --right) break;
+           
+           for(int i = right; i >= left; i--) list.add(matrix[bottom][i]);
+           if(top > --bottom) break;
+           
+           for(int i = bottom; i >= top; i--) list.add(matrix[i][left]);
+           if(++left > right) break;
+        }
+        return list;
+    }
+}
+```
+
+```java
+// 思路2：打印顺序第一行，然后删除第一行，最后旋转矩阵
+```
 
 
 
