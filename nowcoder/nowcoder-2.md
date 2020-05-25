@@ -117,3 +117,172 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 4
+
+二叉树和和为某值的路径
+
+```java
+import java.util.ArrayList;
+public class Solution {
+    
+    // 一个保存当前遍历的路径，一个保存符合的全部路径
+    ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+    ArrayList<Integer> path = new ArrayList<Integer>();
+    
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
+        
+        if(root == null || target < 0) return list; // 到叶子节点值后值还不够，或已经多了
+        
+        path.add(root.val); // 添加当前节点进路径
+        target -= root.val; // 计算和
+        
+        if(target == 0 && root.left == null && root.right == null){
+            list.add(new ArrayList<Integer>(path));  // 访问到了叶子节点，且和为target，添加路径
+        }
+        
+        FindPath(root.left, target);  // 深度搜索
+        FindPath(root.right, target);
+        
+        path.remove(path.size()-1); // 回溯
+        return list;
+    }
+}
+```
+
+
+
+
+
+## 5
+
+复杂链表的复制
+
+```java
+/*
+public class RandomListNode {
+    int label;
+    RandomListNode next = null;
+    RandomListNode random = null;
+
+    RandomListNode(int label) {
+        this.label = label;
+    }
+}
+*/
+// 思路：
+// 1. 复制每个节点（暂不处理随机指向），将新节点插入原节点后面：A->A1
+// 2. 处理随机指向
+// 3. 复制链表和原链表分离
+public class Solution {
+    public RandomListNode Clone(RandomListNode pHead){
+        
+        if(pHead == null) return null;
+        
+        // 1. 复制链表，复制节点插入到原节点后面
+        RandomListNode node = pHead;
+        while(node != null){
+            RandomListNode next = node.next;
+            RandomListNode cloneNode = new RandomListNode(node.label);
+            node.next = cloneNode;  // 链表插入过程
+            cloneNode.next = next;
+            node = next;  // 节点插入后，当前节点记得跳转到next
+        }
+        
+        // 2. 遍历处理随机指向
+        node = pHead;
+        while(node != null){
+            if(node.random != null){
+                // 重点：指向随机的下一个（因复制时插入到后一个去了）
+                node.next.random = node.random.next;
+            }
+            node = node.next.next;  // 复制插入要跳多一个
+        }
+        
+        // 3. 分离节点，奇偶分离
+        RandomListNode oldNode = pHead;
+        RandomListNode newHead = pHead.next;  // 新表头
+        while(oldNode != null){
+            RandomListNode newNode = oldNode.next;
+            oldNode.next = newNode.next;
+            if(newNode.next != null){
+                newNode.next = newNode.next.next;
+            }
+            oldNode = oldNode.next; // 上面已经更新了旧节点指向，已经跳过一个节点了
+        }
+        return newHead;
+    }
+}
+
+// 3. 分离节点，奇偶分离
+// RandomListNode oldNode = pHead;
+// RandomListNode newNode = pHead.next;  // 因为有复制，所以后一个节点一定不为空
+// RandomListNode newHead = newNode;  // 新表头
+// while(newNode.next != null){
+//     oldNode.next = newNode.next;
+//     oldNode = oldNode.next;
+//     newNode.next = oldNode.next;
+//     newNode = newNode.next;
+// }
+```
+
+
+
+
+
+## 6
+
+二叉搜索树转变双向链表
+
+```java
+/**
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+
+    public TreeNode(int val) {
+        this.val = val;
+
+    }
+
+}
+*/
+/**
+ * 递归中序遍历：左 根 右
+ * 下面if、else中的意思
+ *    4
+     / \
+ *  3   5
+ * 第一步if：head与temp赋值3节点；
+ * 第二步else：改动temp节点互相指向，最后head赋值4节点：3 <--> 4
+ * 第三步else：改动temp节点互相指向，最后head赋值5节点：4 <--> 5
+ * 综上：3 <--> 4 <--> 5，链表完成
+ */
+public class Solution {
+    TreeNode temp = null;          // 临时节点，帮助形成双向链表
+    TreeNode head = null;          // 表头，用于返回
+    public TreeNode Convert(TreeNode pRootOfTree) {
+        
+        if(pRootOfTree == null) return null;  // 递归出口
+        
+        Convert(pRootOfTree.left); // 左子树遍历
+        
+        if (head == null) {        // 首次要处理根节点
+            head = pRootOfTree;    // 第一次访问，记录头节点，用于访问返回
+            temp = pRootOfTree;
+        } else {
+            temp.right = pRootOfTree;  // 按中序遍历顺序连成链表，详情看上面图
+            pRootOfTree.left = temp;   // 中序就是有序，只需将当前temp指向下一个即可
+            temp = temp.right;        // 然后移动当前节点到下一个
+        }
+        
+        Convert(pRootOfTree.right); // 右子树递归
+        return head;
+    }
+}
+```
+
