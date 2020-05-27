@@ -343,3 +343,139 @@ public class Solution {
 }
 ```
 
+
+
+
+
+
+
+## 8
+
+找出数组中的一个出现的次数超过数组长度的一半的数
+
+```java
+// 思路：摩尔投票法，查找出现1/n的数
+public class Solution {
+    public int MoreThanHalfNum_Solution(int [] array) {
+        
+        int rs = 0;
+        int count = 0;
+        
+        for(int i = 0; i < array.length; i++){  // 投票法
+            if(count == 0){      // 若count为零，则重选一个元素投票
+                rs = array[i];
+            }
+            if(rs == array[i]){  // 遇到相同的票数count++，不同则--
+                count++;
+            }else{
+                count--;
+            }
+        }
+        
+        int countRs = 0;
+        for(int i = 0; i < array.length; i++){  // 计算rs保存的数是否超过一半
+            if( rs == array[i]){
+                countRs++;
+            }
+        }
+        
+        if(countRs > array.length/2) return rs;
+        return 0;
+    }
+}
+```
+
+
+
+
+
+## 9
+
+找出其中最小的K个数（快排，堆排，）
+
+```java
+// 快排，我叫为哨兵排
+import java.util.ArrayList;
+public class Solution {
+    ArrayList<Integer> list = new ArrayList();
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        
+        if(input == null || k > input.length) return list;
+        
+        quickSort(input,0,input.length-1);  // 核心在于快排
+        
+        for(int i = 0; i < k; i++)
+            list.add(input[i]);
+        
+        return list;
+    }
+    
+    private void quickSort(int[] arr, int left,int right){
+        
+        if(left > right) return ;
+        int base = arr[left];
+        int i = left,j = right;
+        
+        while(i < j){  // 选基准交换
+            while(i < j && base <= arr[j]){
+                j--;
+            }
+            while(i < j && base >= arr[i]){
+                i++;
+            }
+            if(i < j){
+                int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+            }
+        }
+        
+        arr[left] = arr[i];  // 基准归位
+        arr[i] = base;
+        
+        quickSort(arr,left,i-1);  // 二分治
+        quickSort(arr,i+1,right);
+    }
+}
+```
+
+
+
+
+
+## 10
+
+计算连续子向量的最大和，有负数
+
+```java
+public class Solution {
+    public int FindGreatestSumOfSubArray(int[] array) {
+        
+        if(array == null) return 0;
+
+        // 注意：题目指的连续，不一定从下标0开始，可以窗口滑动的
+        // maxSum不初始化为0，存在全负数情况，所以初始值array[0]
+        // maxSum存储最大和
+        int curSum,maxSum;
+        curSum = maxSum = array[0];
+        
+        for(int i = 1; i < array.length; i++){
+            
+            // 一旦遇到和为负数，证明前面的正数效果作废了
+            // 当前和小于0，抛弃前面的和，重新从现在加起
+            if(curSum < 0){
+                curSum = array[i];
+            }else if(curSum > 0){
+                curSum += array[i];
+            }
+            
+            // 更新最大和
+            if(curSum > maxSum){
+                maxSum = curSum;
+            }
+        }
+        return maxSum;
+    }
+}
+```
+
