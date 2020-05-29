@@ -38,7 +38,7 @@ public class Solution {
 public class Solution {
     public String replaceSpace(StringBuffer str) {
         char[] arr = str.toString().toCharArray();
-        StringBuffer sb = new StringBuffer(arr.length); //避免多次扩容  System.arraycopy
+        StringBuffer sb = new StringBuffer(arr.length); // 避免多次扩容  System.arraycopy
         for(int i = 0; i < arr.length; i++){
             if(arr[i] == ' '){
                 sb.append("%20");
@@ -108,7 +108,7 @@ public class Solution {
 ```
 
 ```java
-// 模拟栈，ArrayList(index,val)也可以模拟栈，remove(index)
+// 模拟栈，ArrayList(index,val)也可以模拟栈，remove(index)，LinkedList？？
 public class Solution {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList list = new ArrayList();
@@ -125,7 +125,7 @@ public class Solution {
 
 
 
-## 4
+## 4----------
 
 重建二叉树（前序，中序）
 
@@ -473,7 +473,7 @@ public class Solution {
 
 ## 13
 
-调整数组顺序，奇数位于偶数前面，且相对顺序不变
+调整数组顺序，奇数位于偶数前面，且相对顺序不变（稳定性）
 
 ```java
 // 分治，思路明了
@@ -566,7 +566,7 @@ public class Solution {
         pre = next = null;  // 所以只能在head不为空的循环内next了
         
         while(head != null){  // head表示当前节点
-            next = head.next;  // 上面说的next
+            next = head.next;  // 上面说的next，这个要先写
             head.next = pre;
             pre = head;
             head = next;
@@ -582,7 +582,7 @@ public class Solution {
 
 ## 16
 
-合并链表
+合并两个链表，并且按大小排序
 
 ```java
 public class Solution {
@@ -612,7 +612,7 @@ public class Solution {
 
 
 
-## 17
+## 17------
 
 判断是否某树的子结构（两个递归，一个遍历树1，一个用来对比）
 
@@ -673,7 +673,7 @@ public class Solution {
 
 
 
-## 19
+## 19-------------
 
 螺旋打印矩阵
 

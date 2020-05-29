@@ -479,3 +479,94 @@ public class Solution {
 }
 ```
 
+
+
+
+
+## 11
+
+计算整数中1出现的次数
+
+```java
+// 暴力转成字符串判断
+public class Solution {
+    public int NumberOf1Between1AndN_Solution(int n) {
+        StringBuffer str = new StringBuffer();
+        for(int i = 1;i <= n; i++){
+            str.append(i);
+        }
+        
+        int count = 0;
+        String s = str.toString();
+        
+        for(int i = 0;i < s.length(); i++){
+            if(s.charAt(i) == '1'){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+```
+
+```java
+// 计算方法：
+public class Solution {
+    public int NumberOf1Between1AndN_Solution(int n) {
+        int count = 0;
+        for(int i = 1; i <= n; i *=10){
+            
+            int high = n / i;
+            int low  = n % i;
+            
+            if(high % 10 == 1){
+                count += low + 1;
+            }
+            
+            count += (high + 8) / 10 * i;
+        }
+        return count;
+    }
+}
+```
+
+
+
+
+
+## 12
+
+把数组排成最小
+
+```java
+public class Solution {
+    public String PrintMinNumber(int [] numbers) {
+        
+        for(int i = 0; i < numbers.length-1; i++)  // 冒泡排序
+            for(int j = 0; j < numbers.length-i-1; j++){
+                String str1 = numbers[j] + "" + numbers[j+1];
+                String str2 = numbers[j+1] + "" + numbers[j];
+                if(str1.compareTo(str2) > 0){  // 排到最后的是最大
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j+1];
+                    numbers[j+1] = temp;
+                }
+            }
+        
+        String str = "";
+        for(int i = 0; i < numbers.length; i++){
+            str += numbers[i];
+        }
+        return str;
+    }
+}
+```
+
+```java
+// 思路二
+// 数字m、n拼接成 mn 和 nm
+// 若mn>nm，则m大于n
+// 若mn<nm，则m小于n
+// 若mn=nm，则m等于n
+```
+
