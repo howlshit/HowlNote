@@ -570,3 +570,115 @@ public class Solution {
 // 若mn=nm，则m等于n
 ```
 
+
+
+
+
+## 13
+
+丑数：把只包含质因子2、3和5的数
+
+```java
+// 思路：一个丑数一定由另一个丑数乘以2或3或5得到,第二个回答
+import java.util.ArrayList;
+public class Solution {
+    public int GetUglyNumber_Solution(int index) {
+        
+        if(index <= 0) return 0;
+        ArrayList<Integer> list = new ArrayList();
+        list.add(1);  // 默认第一个丑数为1
+        
+        // 用三个下标来模拟三个队列的尾部，加入list证明已经排好序
+        int i2 = 0,i3 = 0,i5 = 0;
+        while(list.size() < index){  // 从各自的队列取出
+            int m2 = list.get(i2)*2;
+            int m3 = list.get(i3)*3;
+            int m5 = list.get(i5)*5;
+            int min = Math.min(m2,Math.min(m3,m5));
+            list.add(min);
+            if(min == m2) i2++;
+            if(min == m3) i3++;
+            if(min == m5) i5++;
+        }
+        return list.get(list.size()-1);
+    }
+}
+```
+
+
+
+
+
+## 14
+
+数组的逆序对
+
+```java
+// 暴力破解法，双层for循环，内层以i+1开头
+public class Solution {
+    public int reversePairs(int[] nums) {
+        int cnt = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] > nums[j]) {
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+```java
+// 归并排序的利用，分治过程中前后数字可对比，是统计的最佳时机
+// 还有个暴力破解法
+public class Solution {
+    
+    int count = 0;  // 统计逆序对
+    
+    public int InversePairs(int [] array) {
+        if(array == null || array.length == 0) return 0;
+        mergeSort(array,0,array.length-1);
+        return count;
+    }
+    
+    private void mergeSort(int[] arr,int start,int end){
+        if(start < end){  // 拆分分治的过程
+            int mid = start + (end - start) / 2;
+            mergeSort(arr,start,mid);
+            mergeSort(arr,mid+1,end);
+            merge(arr,start,mid,end);  // 最后合并
+        }
+    }
+    
+    private void merge(int[] arr,int start,int mid,int end){
+        int[] temp = new int[end - start + 1];
+        
+        int i = start,j = mid + 1;
+        int index = 0;
+        while(i <= mid && j <= end){
+            if(arr[i] > arr[j]){
+                temp[index++] = arr[j++];
+                
+                // 与归并排序就多了下面这两句
+                // 合并数组时，array[i]大于后面array[j]时
+                // 则array[i]~array[mid]都是大于array[j]的，所以count += mid + 1 - i
+                count += mid - i + 1;
+                count = count > 1000000007 ? count % 1000000007 : count;
+            }else{
+                temp[index++] = arr[i++];
+            }
+        }
+        
+        while(i <= mid)
+            temp[index++] = arr[i++];
+        while(j <= end)
+            temp[index++] = arr[j++];
+        
+        for (int k = 0;k < temp.length;k++)
+            arr[start+k] = temp[k];
+    }
+}
+```
+
