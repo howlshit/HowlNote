@@ -1,6 +1,4 @@
-IDEA
-
-
+>  记录一下自己使用到的快捷键，方便日后翻看
 
 
 
@@ -11,6 +9,8 @@ IDEA
 直接下一行 shift + enter
 
 复制行 ctrl + D
+
+删除行 ctrl + Y
 
 格式化 ctrl + alt + L
 
@@ -25,7 +25,5 @@ IDEA
 导包 alt + shift + enter
 
 重写父类方法 ctrl + O
-
-
 
 打开实现类 ctrl + alt + B  /  ctrl + H

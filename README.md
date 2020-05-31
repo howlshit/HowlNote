@@ -244,6 +244,8 @@ Github是作为笔记的仓库自动同步的，可能会遇到笔记还没写�
 * [初探Linux](<https://www.cnblogs.com/Howlet/p/12464994.html>)
 * [Linux常见命令](https://www.cnblogs.com/Howlet/p/12463083.htmlLin)
 * [三次握手四次挥手](<https://www.cnblogs.com/Howlet/p/12793401.html>)
+* [了解HTTP协议](<https://www.cnblogs.com/Howlet/p/13022300.html>)
+* [HTTPS原理](<https://www.cnblogs.com/Howlet/p/13022320.html>)
 
 
 

@@ -347,8 +347,6 @@ public class Solution {
 
 
 
-
-
 ## 8
 
 找出数组中的一个出现的次数超过数组长度的一半的数
@@ -611,6 +609,41 @@ public class Solution {
 
 ## 14
 
+第一个只出现一次的字符位置
+
+```java
+import java.util.HashMap;
+public class Solution {
+    public int FirstNotRepeatingChar(String str) {
+        
+        HashMap<Character,Integer> map = new HashMap();
+        
+        if(str.length() == 0) return -1;
+        
+        for(int i = 0; i < str.length(); i++){
+            if( map.containsKey(str.charAt(i)) ){
+                int num = map.get(str.charAt(i));
+                map.put(str.charAt(i),num+1);
+            }else{
+                map.put(str.charAt(i),1);
+            }
+        }
+        for(int i = 0; i < str.length(); i++){
+            if( map.get(str.charAt(i)) == 1 ){
+                return i;
+            }
+        }
+        return 0;
+    }
+}
+```
+
+
+
+
+
+## 15
+
 数组的逆序对
 
 ```java
@@ -686,7 +719,7 @@ public class Solution {
 
 
 
-## 15
+## 16
 
 两个链表的第一个公共结点
 
@@ -773,7 +806,7 @@ public class Solution {
 
 
 
-## 16
+## 17
 
 统计一个数字在排序数组中出现的次数（排序就二分）
 
@@ -872,6 +905,123 @@ public class Solution {
         }
         if(high == -1) return -1;
         return array[high] == k ? high : -1;
+    }
+}
+```
+
+
+
+
+
+## 18
+
+求树深
+
+```java
+// 递归
+public class Solution {
+    public int TreeDepth(TreeNode root) {
+        
+        if(root == null) return 0;
+        return Math.max( TreeDepth(root.left)+1 , TreeDepth(root.right)+1 );
+        
+    }
+}
+```
+
+```java
+// 层次遍历解决，此层次和之前的不同
+import java.util.LinkedList;
+public class Solution {
+    public int TreeDepth(TreeNode root) {
+        
+        int cnt = 0;                                    // 层数
+        LinkedList<TreeNode> queue = new LinkedList();  // 存储节点模拟层次的
+        
+        if(root == null) return cnt;
+        queue.addLast(root);
+        
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i = 0; i < size; i++){              // for将当前层处理完
+                TreeNode temp = queue.removeFirst();    // 出队
+                if(temp.left != null) queue.addLast(temp.left);
+                if(temp.right != null) queue.addLast(temp.right);
+            }
+            cnt++;
+        }
+        return cnt;
+    }
+}
+```
+
+
+
+
+
+## 19
+
+验证平衡二叉树平衡（任何结点的两个子树的高度差小于等于1），可以结合17题
+
+```java
+// 递归
+public class Solution {
+    public boolean IsBalanced_Solution(TreeNode root) {
+        
+        // 空也是一个平衡树
+        if(root == null) return true;
+        return getDepth(root) != -1;
+    }
+    
+    // 后序遍历算深度，每个节点只用算一次
+    private int getDepth(TreeNode node){
+        
+        if(node == null) return 0;
+        
+        // 左树的深度
+        int left = getDepth(node.left);
+        if(left == -1) return -1;
+        
+        // 右树的深度
+        int right = getDepth(node.right);
+        if(right == -1) return -1;
+        
+        // 左右树深度比较，也就是递归
+        if(Math.abs(left - right) > 1) return -1;
+        
+        // 当前
+        return Math.max(left,right) + 1;
+    }
+}
+```
+
+
+
+
+
+## 20
+
+数组中只出现一次的数字
+
+```java
+import java.util.HashSet;
+//num1,num2分别为长度为1的数组。传出参数
+//将num1[0],num2[0]设置为返回结果
+public class Solution {
+    public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
+        HashSet<Integer> set = new HashSet();
+        
+        // set.add，如果存在返回true，如为false则插入元素
+        for(int i = 0; i < array.length; i++){
+            if(set.contains(array[i])){
+                set.remove(array[i]);
+            }else{
+                set.add(array[i]);
+            }
+        }
+        Object[] temp = set.toArray();
+        num1[0] = (int) temp[0];
+        num2[0] = (int) temp[1];
     }
 }
 ```
