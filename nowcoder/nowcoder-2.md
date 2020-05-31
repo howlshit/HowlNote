@@ -656,7 +656,7 @@ public class Solution {
         int[] temp = new int[end - start + 1];
         
         int i = start,j = mid + 1;
-        int index = 0;
+        int index15 = 0;
         while(i <= mid && j <= end){
             if(arr[i] > arr[j]){
                 temp[index++] = arr[j++];
@@ -678,6 +678,200 @@ public class Solution {
         
         for (int k = 0;k < temp.length;k++)
             arr[start+k] = temp[k];
+    }
+}
+```
+
+
+
+
+
+## 15
+
+两个链表的第一个公共结点
+
+```java
+// 先走链表二者长度差，然后同步走到相同节点
+public class Solution {
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        
+        // 0. 移动节点要记得复位，这里卡了好久，不然NPE
+        ListNode temp1 = pHead1;
+        ListNode temp2 = pHead2;
+        
+        // 1. 记录二者的长度
+        int p1 = 0, p2 = 0;
+        while(pHead1 != null){
+            p1++;
+            pHead1 = pHead1.next;
+        }
+        while(pHead2 != null){
+            p2++;
+            pHead2 = pHead2.next;
+        }
+        
+        if(pHead1 != pHead2) return null;  // 尾节点都不相交，下面也无需遍历了，简化操作可忽略
+        
+        // 2. 上面移动指针要复位
+        //    移动长链表，移动距离为二者长度差
+        pHead1 = temp1;
+        pHead2 = temp2;
+        if(p1 > p2){
+            int temp = p1 - p2;
+            while(temp > 0){
+                pHead1 = pHead1.next;
+                temp--;
+            }
+        }else{
+            int temp = p2 - p1;
+            while(temp > 0){
+                pHead2 = pHead2.next;
+                temp--;
+            }
+        }
+        
+        // 3. 二者并行找相同节点
+        while(pHead1 != null || pHead2 != null){
+            if(pHead1 == pHead2){
+                return pHead1;
+            }
+            pHead1 = pHead1.next;
+            pHead2 = pHead2.next;
+        }
+        
+        // 4. 没有公共节点
+        return null;
+    }
+}
+```
+
+```java
+// 思路二，两条y状的链表，从尾遍历到头，第一个不相同的就是交点，使用栈/递归实现
+```
+
+```java
+// 思路三：最优解，双指针
+// 两个指针同步走，哪个到了链表尾，就设置为对方的头节点继续遍历，最后会相遇
+// 长度相同有公共结点，第一次就遍历到；没有公共结点，走到尾部NULL相遇，返回NULL
+// 长度不同有公共结点，第一遍差值就出来了，第二遍一起到公共结点；没有公共，一起到结尾NULL
+public class Solution {
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        
+        ListNode p1 = pHead1;
+        ListNode p2 = pHead2;
+        
+        while(p1 != p2){
+            p1 = (p1 == null ? pHead2 : p1.next);
+            p2 = (p2 == null ? pHead1 : p2.next);
+        }
+        return p1;
+    }
+}
+```
+
+
+
+
+
+## 16
+
+统计一个数字在排序数组中出现的次数（排序就二分）
+
+```java
+// 思路：傻子做法
+public class Solution {
+    public int GetNumberOfK(int [] array , int k) {
+        int cnt = 0;
+        for(int i = 0; i < array.length; i++){
+            if(k == array[i]){
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+}
+```
+
+```java
+// 思路：首先二分法，找到之后向前向后找
+public class Solution {
+    public int GetNumberOfK(int [] array , int k) {
+        
+        int cnt = 0;
+        int left = 0;
+        int right = array.length - 1;
+        int mid = -1;
+        
+        while(left <= right){
+            mid = left + (right-left) / 2;
+            if(array[mid] == k){
+                cnt++;
+                break;
+            }else if(array[mid] < k){
+                left = mid + 1;
+            }else{
+                right = mid - 1;
+            }
+        }
+        
+        if(mid == -1) return cnt;  // 没找到相同的，先退出了
+        
+        for(int i = mid+1; i < array.length; i++){
+            if(array[i] == k) cnt++;
+            else break;
+        }
+        for(int i = mid-1; i >= 0; i--){
+            if(array[i] == k) cnt++;
+            else break;
+        }
+        return cnt;
+    }
+}
+```
+
+```java
+// 思路三：最优，二分左右边界，相减即可
+public class Solution {
+    public int GetNumberOfK(int [] array , int k) {
+        if(array == null || array.length == 0) return 0;
+        
+        int first = getFirstK(array,k);
+        int last = getLastK(array,k);
+        
+        if(first == -1 || last == -1) return 0;
+        else return last - first + 1;
+    }
+    private int getFirstK(int [] array, int k){
+        int low = 0;
+        int high = array.length - 1;
+        while(low <= high){
+            int mid = low + (high-low) / 2;
+            if(array[mid] == k){
+                high = mid - 1;
+            }else if(array[mid] > k){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        if(low == array.length) return -1;  // 这里最重要
+        return array[low] == k ? low : -1;
+    }
+    private int getLastK(int [] array, int k){
+        int low = 0;
+        int high = array.length - 1;
+        while(low <= high){
+            int mid = low + (high - low) / 2;
+            if(array[mid] == k){
+                low = mid + 1;
+            }else if(array[mid] > k){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        if(high == -1) return -1;
+        return array[high] == k ? high : -1;
     }
 }
 ```
