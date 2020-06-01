@@ -10,8 +10,8 @@ public class Solution {
         
         if(pushA == null || popA == null) return false;
         
-        int cnt = 0;
-        Stack<Integer> stack = new Stack();  // 辅助栈
+        int cnt = 0;                            // 记录出栈个数或下标   
+        Stack<Integer> stack = new Stack();     // 辅助栈
         
         for(int i = 0; i < pushA.length; i++){  // 模拟入栈
             stack.push(pushA[i]);
@@ -34,12 +34,12 @@ public class Solution {
 从上往下层级遍历二叉树
 
 ```java
-// 思路：用一个队列模拟层次
+// 思路：用一个 队列 模拟层次
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class Solution {
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
-        ArrayList<Integer> list = new ArrayList();  // 存取层次遍历序列
+        ArrayList<Integer> list = new ArrayList();      // 存取层次遍历序列
         LinkedList<TreeNode> queue = new LinkedList();  // 存储节点模拟层次的
         
         if(root == null) return list;
@@ -101,7 +101,7 @@ public class Solution {
     }
     private boolean search(int[] arr,int left,int right){
         
-        if(left >= right) return true;  // 递归出口
+        if(left >= right) return true;  // 递归出口，这里最重要
         
         int mid = left;  // 从左遍历找分界（对比根），小心越界
         while(arr[mid] < arr[right] && mid < right){
@@ -112,7 +112,7 @@ public class Solution {
                 return false;
             }
         }
-        return search(arr,left,mid-1) && search(arr,mid,right-1);
+        return search(arr,left,mid-1) && search(arr,mid,right-1);   // 左去界，右去根
     }
 }
 ```
@@ -123,7 +123,7 @@ public class Solution {
 
 ## 4
 
-二叉树和和为某值的路径
+二叉树和为某值的路径
 
 ```java
 import java.util.ArrayList;
