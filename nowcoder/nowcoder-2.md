@@ -300,21 +300,19 @@ import java.util.Collections;
 public class Solution {
     
     // 思路：
-    // 排列中：每个元素都有排在首位的机会（首位与后面的遍历交换swap）
-    // 选择一个元素固定在第一位，后面的元素全排列（递归实现foo）
-    // 而后面的元素也采取上面的做法，直到最后一个元素
+    // 1. 分成两部分，首个字符、后面的全部字符
+    // 2. 每个字符都可在首位，即首字符和后面的进行交换
+    // 3. 固定第一个字符，求后面的排列，即递归进行2，3步，出口为到了数组长度
     
     // 保存排列
     ArrayList<String> list = new ArrayList();
     
     public ArrayList<String> Permutation(String str) {
-       
-        // 排列过程
-        char[] arr = str.toCharArray();
-        foo(arr,0);
         
-        // 排序后返回
-        Collections.sort(list);
+        char[] arr = str.toCharArray();  // 要转成数组
+        foo(arr,0);                      // 排列过程
+        
+        Collections.sort(list);          // 排序后返回
         return (ArrayList) list;
     }
     
@@ -326,10 +324,10 @@ public class Solution {
                 list.add(new String(s));
             }
         }else{
-            for(int i = start;i < arr.length;i++){  // 遍历交换：使得每个元素都在首位
-                swap(arr,start,i);
-                foo(arr,start+1);  // 对当前排列来说，固定首位，后面的全排列
-                swap(arr,start,i); // 交换回来，不影响后面的每个元素都排在首位
+            for(int i = start;i < arr.length; i++){  // 遍历交换：使得每个元素都在首位
+                swap(arr,start,i);  // 1. 首位和后面的全部逐个交换
+                foo(arr,start+1);  //  2. 固定首位，排列后面的字符
+                swap(arr,start,i); //  3. 回溯，不影响后面的每个元素都排在首位
             }
         }
     }
@@ -642,7 +640,7 @@ public class Solution {
 
 
 
-## 15
+## 15---------------
 
 数组的逆序对
 

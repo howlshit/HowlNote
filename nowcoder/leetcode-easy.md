@@ -42,3 +42,25 @@ class Solution {
 }
 ```
 
+
+
+
+
+## 2
+
+反转数字
+
+```java
+class Solution {
+    public int reverse(int x) {
+        long n = 0;                    // 用长整型来判断溢出
+        while(x != 0){
+            n *= 10;
+            n += x % 10;
+            x /= 10;
+        }
+        return (int)n == n ? (int)n : 0;
+    }
+}
+```
+
