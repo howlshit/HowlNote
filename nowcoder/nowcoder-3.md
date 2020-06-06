@@ -14,8 +14,8 @@ public class Solution {
         
         int start = 1,end = 2;  // 至少两个数
         ArrayList rs = new ArrayList();  // 保存序列
-        while(end > start){
-            int temp = (start + end) * (end - start + 1) / 2;  // 当前窗口内之和
+        while(end > start){                                    // 这里注意 下面有个+1
+            int temp = (start + end) * (end - start + 1) / 2;  // 当前序列求和公式，窗口内之和
             if(temp == sum){  // 相等即保存该序列
                 ArrayList list = new ArrayList();
                 for(int i = start; i <= end; i++){
@@ -23,9 +23,9 @@ public class Solution {
                 }
                 rs.add(list);
                 start++;
-            }else if(temp < sum){
+            }else if(temp < sum){  // 右指针移动是增加数目
                 end++;
-            }else{
+            }else if(temp > sum){  // 左指针移动是减少数目
                 start++;
             }
         }
@@ -47,6 +47,7 @@ public class Solution {
  * a + b = s;
  * (a - m) + (b + m) = s，模拟从外到内的其他组合
  * 而(a - m)(b + m) = ab - (b-a)m - m * m < ab，说明外层的乘积更小
+ * 总结：两数和一定，差越大，积越小
  */
 
 import java.util.ArrayList;
@@ -87,9 +88,7 @@ public class Solution {
 public class Solution {
     public String LeftRotateString(String str,int n) {
         
-        if(str == null || str.length() == 0 || n == 0){
-            return str;
-        }
+        if(str == null || str.length() == 0 || n == 0) return str;
         
         n %= str.length();  // 实际左移几位
         char[] arr = str.toCharArray();
@@ -108,8 +107,7 @@ public class Solution {
     // 字符串反转
     private void reverse(char[] arr, int start, int end){
         while(start < end){
-            char temp;
-            temp = arr[start];
+            char temp = arr[start];
             arr[start] = arr[end];
             arr[end] = temp;
             start++;
@@ -138,7 +136,7 @@ public class Solution {
 
 ## 4
 
-句子反转：student a am I   ---->  I am a student
+句子反转：student a am I   ---->  I ma a tneduts   ----> I am a student
 
 ```java
 public class Solution {
@@ -156,7 +154,7 @@ public class Solution {
                 right++;
                 left = right;
             }
-            if(right == arr.length-1){  // 单独处理最后一个，不用++了
+            if(right == arr.length-1){  // 单独处理最后一个，不用++了（最后一个没有空格）
                 reverse(arr,left,right);
                 break;
             }
@@ -168,8 +166,7 @@ public class Solution {
     // 反转
     private void reverse(char[] arr,int start,int end){
         while(start < end){
-            char temp;
-            temp = arr[start];
+            char temp = arr[start];
             arr[start] = arr[end];
             arr[end] = temp;
             start++;
@@ -669,7 +666,7 @@ public class Solution {
         return same(pRoot.left,pRoot.right);
     }
     private boolean same(TreeNode left,TreeNode right){
-        if(left == null && right == null) return true;
+        if(left == null && right == null) return true;  // 对称二叉树
         if(left == null || right == null) return false;
         if(left.val != right.val) return false;
         return same(left.left,right.right) && same(left.right,right.left);

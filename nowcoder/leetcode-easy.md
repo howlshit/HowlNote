@@ -48,7 +48,7 @@ class Solution {
 
 ## 2
 
-反转数字
+反转数字（要判断溢出）
 
 ```java
 class Solution {
@@ -60,6 +60,34 @@ class Solution {
             x /= 10;
         }
         return (int)n == n ? (int)n : 0;
+    }
+}
+```
+
+
+
+
+
+## 3
+
+删除排序数组中的重复项，要求 S(1）
+
+```java
+// 思路：双指针
+// 1. nums[i] = nums[j]，我们就增加 j 以跳过重复项（for里面自动j++）
+// 2. nums[j] != nums[i]，则将nums[j] 复制到nums[i+1] 
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums == null) return 0;
+        
+        int i = 0;								// 指针 i,j
+        for(int j = 1; j < nums.length; j++){   // 
+            if(nums[i] != nums[j]){
+                nums[i+1] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
     }
 }
 ```
