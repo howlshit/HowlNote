@@ -224,19 +224,18 @@ public class Solution {
     public int LastRemaining_Solution(int n, int m) {
         LinkedList<Integer> list = new LinkedList();  // 链表模拟约瑟夫环
         for(int i = 0; i < n; i++) list.add(i);
-        int pre = 0;                                  // 记录上次去除的位置
+        int cur = 0;                                  // 记录上次去除的位置
         while(list.size() > 1){                       // 剩最后一人时结束
-            int cur = (pre + m - 1) % list.size();    // （上次位置+间隙） % 长度 = 当前该删位置
+            cur = (cur + m - 1) % list.size();        // （上次位置+间隔） % 长度 = 当前该删位置
             list.remove(cur);                         // 元素被去除
-            pre = cur;                                // 上次的位置，变成这次的了
         }
         return list.size() == 1 ? list.get(0) : -1;
     }
 }
+```
 
-// 循环或者一句搞定
-// int cur = 0;
-// cur = (cur + m - 1) % list.size();
+```java
+// 思路二：用数组来模拟，加个标志位表示被访问过了
 ```
 
 
@@ -249,6 +248,7 @@ public class Solution {
 
 ```java
 // 因为java判断有些不同，所以要用到无意义的变量
+// 递归实现，出口的的if用 && 字符代替，短路的作用
 public class Solution {
     public int Sum_Solution(int n) {
         int rs = 0;
@@ -308,9 +308,10 @@ public class Solution {
         for(int i = 0; i < arr.length; i++){
             if(arr[i] >= '0' && arr[i] <= '9'){
                 sum = sum * 10 + arr[i] - '0';
-            }else if(sum != 0){  // 这里可能返回 + - 0
+            }else if(sum != 0){  // 拿证明，除了第一的符号位，有不符合数字的
                 return 0;
             }
+            // 符号位自动跳过，sum==0时，表明是第一位
         }
         
         // 3.符号判断
@@ -329,9 +330,9 @@ public class Solution {
 
 
 
-## 10
+## 10--------------------
 
-输出数组第一个重复元素
+输出数组第一个重复元素（或者使用bitmap？？？）
 
 ```java
 public class Solution {
@@ -424,7 +425,7 @@ public class Solution {
 
 
 
-## 12
+## 12-----------------------
 
 模拟正则表达式匹配字符串
 
