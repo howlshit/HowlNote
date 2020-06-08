@@ -384,7 +384,7 @@ public class Solution {
 
 
 
-## 11
+## 11-------------------------
 
 乘积数组：
 
@@ -401,12 +401,12 @@ public class Solution {
         if (A == null || A.length == 0) return new int[1];
         
         int[] B = new int[A.length];
-        B[0] = 1;
+        B[0] = 1;                    // 首位复制，类似于迭代？？？？
         for(int i = 1; i < B.length; i++){
-            B[i] = B[i-1] * A[i-1];  // 下三角
+            B[i] = B[i-1] * A[i-1];  // 下边的三角
         }
         int temp = 1;
-        for(int j = B.length-2; j >= 0; j--){
+        for(int j = B.length-2; j >= 0; j--){  // 正常是减一
             temp *= A[j+1];  // 上三角，这里A应该横着看
             B[j] *= temp;
         }
@@ -427,38 +427,41 @@ public class Solution {
 
 ## 12-----------------------
 
-模拟正则表达式匹配字符串
+模拟正则表达式匹配字符串（递归实现迭代的思路）
 
 ```java
+// 1. 模式串的下一个字符是 * ：
+//    1.1 当前字符匹配：
+//			1.1.1：三种情况
+//    1.2 当前字符不匹配，那模式串也是后移两位
+//
+// 2. 模式串下一个不是 * ：
+//    2.1 当前字符匹配，两个同时后移一位
+//    2.2 当前字符不匹配，GG
 public class Solution {
     public boolean match(char[] str, char[] pattern){
         if(str == null || pattern == null) return false;
         return match(str,pattern,0,0);
     }
-    private boolean match(char[] str, char[] pattern,int sindex,int pindex){
-        // 完美匹配
-        if(sindex == str.length && pindex == pattern.length) return true;
+    
+    private boolean match(char[] str,char[] pattern,int s,int p){
+        if(s == str.length && p == pattern.length) return true;  // 两个串匹同时匹配完
+        if(p >= pattern.length) return false;  					 // 模式串先完，那就GG
         
-        // pattern先用完了
-        if(pindex >= pattern.length) return false;
-        
-        // 下一个字符是 *
-        if(pindex + 1 < pattern.length && pattern[pindex + 1] == '*'){
-            // 当前字符相等或遇到'.'
-            if( sindex < str.length && (str[sindex] == pattern[pindex] || pattern[pindex] == '.') ){
-                return match(str,pattern,sindex,pindex+2)    // 模式后移2，视为x*匹配0个字符
-                    || match(str,pattern,sindex+1,pindex+2)  // 视为模式匹配1个字符
-                    || match(str,pattern,sindex+1,pindex);   // *匹配1个，再匹配str中的下一个
-            }else{
-                return match(str,pattern,sindex,pindex+2);
+        if(p < pattern.length-1 && pattern[p+1] == '*'){  // 下一个字符是*
+            // 当前字符匹配,有三种情况
+            if(s < str.length && (str[s] == pattern[p] || pattern[p] == '.')){
+                return
+                    match(str,pattern,s,p+2) ||   // 匹配0个
+                    match(str,pattern,s+1,p+2) || // 匹配1个
+                    match(str,pattern,s+1,p);     // 匹配多个
+            }else{ // 当前字符不匹配，那模式串也是后移两位
+                return match(str,pattern,s,p+2);
             }
-            
-        // 下一个字符不是 *
-        }else{
-            if( sindex < str.length && (str[sindex] == pattern[pindex] || pattern[pindex] == '.') ){
-                return match(str,pattern,sindex+1,pindex+1);
-            }
-            else{
+        }else{ 											 // 下一个字符不是 *
+            if(s < str.length && (str[s] == pattern[p] || pattern[p] == '.')){
+                return match(str,pattern,s+1,p+1);       // 那也得匹配当前字符，相等继续
+            }else{										 // 当前字符不匹配GG
                 return false;
             }
         }
