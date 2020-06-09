@@ -515,12 +515,13 @@ public class Solution {
 从字符流中判断第一个出现一次的字符：google  ---> ggg#ll
 
 ```java
+// 思路有三个，一个Map，还有一个LinkedHashMap内有插入顺序和访问顺序，一个数组，
 import java.util.ArrayList;
 import java.util.HashMap;
 public class Solution {
 
-    HashMap<Character, Integer> map = new HashMap();
-    ArrayList<Character> list = new ArrayList<Character>();
+    HashMap<Character, Integer> map = new HashMap();  		 // 记录次数
+    ArrayList<Character> list = new ArrayList<Character>();  // 记录顺序
     //Insert one char from stringstream
     public void Insert(char ch)
     {
@@ -542,8 +543,36 @@ public class Solution {
         return '#';
     }
 }
+```
 
-// 思路有三个，一个Map，一个数组，还有一个LinkedHashMap内有插入顺序和访问顺序
+```java
+// 推荐这个？
+import java.util.Map;
+import java.util.LinkedHashMap;
+public class Solution {
+    
+    LinkedHashMap<Character,Integer> map = new LinkedHashMap<Character,Integer>();
+    
+    //Insert one char from stringstream
+    public void Insert(char ch)
+    {
+        if(!map.containsKey(ch)){
+            map.put(ch,1);
+        }else{
+            map.put(ch,map.get(ch)+1);
+        }
+    }
+  //return the first appearence once char in current stringstream
+    public char FirstAppearingOnce()
+    {
+        for(Map.Entry<Character,Integer> set : map.entrySet()){
+            if(set.getValue() == 1){
+                return set.getKey();
+            }
+        }
+        return '#';
+    }
+}
 ```
 
 
@@ -571,7 +600,8 @@ public class Solution {
             }
         }
         
-        if(fast == null || fast.next == null) return null;  // 判断是否有环
+        // 因为快指针一次走两步，所以得判断当前和下一个节点
+        if(fast == null || fast.next == null) return null;
         
         slow = pHead;
         while(slow != fast){
@@ -633,6 +663,11 @@ public class Solution {
 
 ```java
 // 本题的next指向父节点。。。没看题的尴尬
+// 思路：
+// 1. 有右子树，找后继节点
+// 2. 没右子树，访问父节点
+//	  2.1 当前节点是父节点的左孩子，按中序访问右子树
+//    2.2 当前节点是父节点的右孩子，继续往上访问父节点
 public class Solution {
     public TreeLinkNode GetNext(TreeLinkNode pNode){
         if(pNode == null) return null;
@@ -730,7 +765,7 @@ public class Solution {
 
 ## 20
 
-层次遍历二叉树（区别于每层独立存储，而且注解使用List还是Linked可以优化）
+层次遍历二叉树（区别于每层独立存储，而且注意使用List还是Linked可以优化）
 
 ```java
 import java.util.ArrayList;
