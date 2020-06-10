@@ -700,8 +700,7 @@ public class Solution {
 ```java
 public class Solution {
     boolean isSymmetrical(TreeNode pRoot){
-        if(pRoot == null) return true;
-        
+        if(pRoot == null) return true;    
         return same(pRoot.left,pRoot.right);
     }
     private boolean same(TreeNode left,TreeNode right){
@@ -719,7 +718,7 @@ public class Solution {
 
 ## 19 
 
-之子型打印二叉树
+之字型打印二叉树
 
 ```java
 import java.util.ArrayList;
