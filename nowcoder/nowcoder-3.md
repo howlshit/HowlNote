@@ -680,7 +680,7 @@ public class Solution {
         }
         while(pNode.next != null){  // 没右子树,则访问父节点
             if(pNode.next.left == pNode){  // 当前节点是其父亲的左子树
-                return pNode.next;  // 按照中序去访问右子树了
+                return pNode.next;  // 按照中序去访问根节点
             }
             pNode = pNode.next;  // 如果是其父亲的右子树，那么其父亲已经遍历完了，再向上找没被遍历左子树的
         }
