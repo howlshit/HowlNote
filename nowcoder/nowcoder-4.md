@@ -118,10 +118,10 @@ public class Solution {
 
 ## 4
 
-滑动窗口的最大值
+每个滑动窗口的最大值
 
 ```java
-// 不推荐大顶堆方法，没效率
+// 不推荐大顶堆方法，没效率，但容易理解
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
