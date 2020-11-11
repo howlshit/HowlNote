@@ -1,0 +1,61 @@
+/* 背景格子图 */
+body {
+    background-image: url("https://blog-static.cnblogs.com/files/Howlet/bg.gif");
+}
+
+
+
+
+/* 公告有啥作用？ */
+#profile_block {
+    display: block;
+    color: #6f6e6e;
+}
+
+#headImg {
+    border-top: 10px;
+    text-align: center;
+    line-height: 200px;
+    width: 40px;
+    height: 40px;
+    background-color: ;
+}
+
+#sidebar_news :hover > #headImg{
+    display: none;
+}
+
+
+
+/* 去除广告 */
+.under-comment-nav {
+    display: none;
+}
+
+#ad_text_under_commentbox {
+    display: none;
+}
+
+#ad_t2 {
+    display: none;
+}
+
+#under_post_news {
+    display: none;
+}
+
+#cnblogs_c2 {
+    display: none;
+}
+
+#under_post_kb {
+    display: none;
+}
+
+#HistoryToday {
+    display: none;
+}
+
+#cnblogs_c1 {
+    display: none;
+}
