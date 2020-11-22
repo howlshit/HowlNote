@@ -4,19 +4,21 @@
 
 ```java
 public class Solution {
-    public boolean Find(int target, int [][] array) {
+    public boolean Find(int target, int[][] array) {
+        
         int rows = array.length;
         int cols = array[0].length;
         
         int i = rows - 1;
         int j = 0;
         
+        // 从左下角，或右上角扫描
         while(i >= 0 && j < cols){
             if(target < array[i][j]){
                 i--;
             }else if(target > array[i][j]){
                 j++;
-            }else{
+            }else{    
                 return true;
             }
         }
@@ -34,16 +36,27 @@ public class Solution {
 字符串替换
 
 ```java
+// 内部函数
+public class Solution {
+    public String replaceSpace(StringBuffer str) {
+        
+        return str.toString().replaceAll(" ", "%20");
+    }
+}
+```
+
+```java
 // 效率也没差
 public class Solution {
     public String replaceSpace(StringBuffer str) {
-        char[] arr = str.toString().toCharArray();
-        StringBuffer sb = new StringBuffer(arr.length); // 避免多次扩容  System.arraycopy
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] == ' '){
+        
+        StringBuffer sb = new StringBuffer(str.length());	// 避免多次扩容  System.arraycopy
+        
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(i) == ' '){
                 sb.append("%20");
             }else{
-                sb.append(arr[i]);
+                sb.append(str.charAt(i));
             }
         }
         return sb.toString();
@@ -52,7 +65,9 @@ public class Solution {
 ```
 
 ```java
-// 考察的是优化，从后往前替换，移动次数少
+// 考察优化
+// 从前向后计算空格数
+// 从后向前替换，这样移动的次数相对少了
 public class Solution {
     public String replaceSpace(StringBuffer str) {
         
@@ -108,7 +123,9 @@ public class Solution {
 ```
 
 ```java
+// 非递归
 // 模拟栈，ArrayList(index,val)也可以模拟栈，remove(index)，LinkedList？？
+// ArrayList的头插法
 public class Solution {
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList list = new ArrayList();
@@ -125,7 +142,7 @@ public class Solution {
 
 
 
-## 4----------
+## 4
 
 重建二叉树（前序，中序）
 
@@ -133,7 +150,7 @@ public class Solution {
 // 一般树都是递归操作，用索引
 public class Solution {
     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
-        return reConBTree(pre,0,pre.length-1,in,0,in.length-1);
+        return reConBTree(pre,0,pre.length-1,in,0,in.length-1);	// 传入实际长度
     }
     
     public TreeNode reConBTree(int[] pre,int pleft,int pright,int[] in,int inleft,int inright){
@@ -155,28 +172,29 @@ public class Solution {
 ```
 
 ```java
-// 用了copy
+// Arrays.copyOfRange(arr,from,to)，注意包括上标，不包括下标
+// Arrays.copyOf(arr,newLength)，新长度大于就长度就填充默认值
 import java.util.*;
 public class Solution {
     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
         
        if(pre.length == 0 || in.length == 0) return null;  // 条件判断
         
-        TreeNode node = new TreeNode(pre[0]);  // 创建根节点
+        TreeNode root = new TreeNode(pre[0]);  // 创建根节点
         
         for(int i = 0; i < in.length; i++){
             if(pre[0] == in[i]){
                 
-                node.left = reConstructBinaryTree
-                    (Arrays.copyOfRange(pre, 1, i+1), 
+                root.left = reConstructBinaryTree
+                    (Arrays.copyOfRange(pre, 1, i+1),
                      Arrays.copyOfRange(in, 0, i));
                 
-                node.right = reConstructBinaryTree
+                root.right = reConstructBinaryTree
                     (Arrays.copyOfRange(pre, i+1, pre.length), 
                      Arrays.copyOfRange(in, i+1,in.length));
             }
         }
-        return node;
+        return root;
     }
 }
 ```
