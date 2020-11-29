@@ -205,7 +205,7 @@ public class Solution {
 
 ## 5
 
-两个栈模拟队列
+两个栈模拟队列，先清空栈2才进入元素，先清空栈1才弹出元素
 
 ```java
 import java.util.Stack;
@@ -240,7 +240,7 @@ public class Solution {
 
 ```java
 // 非递减，即递增有重复
-// 用二分法：最后第一个指针指向分界点的前一个，第二个指针指向分界点的后一个，即二者相邻，那么
+// 用二分法：最后low指向分界点前一个，high指向分界点后一个，二者相邻，返回low++
 // 第二个指针将指向最小元素
 import java.util.ArrayList;
 public class Solution {
@@ -258,7 +258,7 @@ public class Solution {
                 low = mid;
             }else if(array[mid] < array[high]){
                 high = mid;
-            }else {  // 重复元素无法判断是分界前后，只能顺序找
+            }else {  	// 重复元素无法判断是分界前后，只能顺序找
                 low++;  // 且最后也使指针指向分界的后一个
             }
         }
@@ -280,8 +280,7 @@ public class Solution {
 public class Solution {
     public int Fibonacci(int n) {
 
-        if(n == 0) return 0;
-        if(n == 1) return 1;
+        if(n == 0 || n == 1) return n;
         
         int a = 0;
         int b = 1;
@@ -302,8 +301,7 @@ public class Solution {
 // 递归
 public class Solution {
     public int Fibonacci(int n) {
-        if(n == 0) return 0;
-        if(n == 1) return 1;
+        if(n == 0 || n == 1) return n;
         return Fibonacci(n-1) + Fibonacci(n-2);
     }
 }
@@ -315,7 +313,7 @@ public class Solution {
 
 ## 8
 
-跳台阶：注重思想
+跳台阶：注重思想，就是斐波那契数列
 
 迭代没什么好说的
 
@@ -328,6 +326,14 @@ public class Solution {
 // 最后一步跳2阶，即之前有n-2个台阶，据前面的假设，即n-2个台阶有f(n-2)种走法
 // 总结规律：n个台阶的走法等于前两种情况的走法之和即 f(n) = f(n-1)+f(n-2)
 // 变相斐波那契数列
+
+// 注意和上面那题起点不一样
+public class Solution {
+    public int JumpFloor(int target) {
+        if(target == 1 || target == 2) return target;
+        return JumpFloor(target - 1) + JumpFloor(target - 2);
+    }
+}
 ```
 
 
@@ -336,7 +342,7 @@ public class Solution {
 
 ## 9
 
-跳台阶II，式子推导出来后看怎么实现迭代思想
+跳台阶II
 
 ```java
 // n级台阶，第一步有n种跳法：跳1级、跳2级、……、到跳n级
@@ -377,12 +383,13 @@ public class Solution {
 // 第二种情况:阴影部分的n-2块矩形有多少种覆盖方法，为f(n-2);
 // 故f(n) = f(n-1) + f(n-2)，还是一个斐波那契数列
 
+// 斐波那契数列就是注意起点问题
 public class Solution {
     public int RectCover(int target) {
         if(target == 0) return 0;
         if(target == 1) return 1;
         int a = 1,b = 1,c = 0;
-        while(target > 1){
+        while(target > 1){ // 第一项1，上面已经给出了
             c = a + b;
             a = b;
             b = c;
@@ -427,6 +434,16 @@ public class Solution {
             cnt++;
         }
         return cnt;
+    }
+}
+```
+
+```java
+// 作弊解
+// 计算该数的二进制，然后返回二进制中`1`的个数 
+public class Solution {
+    public int NumberOf1(int n) {
+        return Integer.bitCount(n);
     }
 }
 ```
@@ -531,6 +548,27 @@ public class Solution {
                    array[j] = array[j-1];
                    array[j-1] = temp;
                }
+            }
+        }
+    }
+}
+```
+
+```java
+// 就地算法，不借助辅助，原地修改数据结构
+// i 前面的奇数都排好了
+public class Solution {
+    public void reOrderArray(int [] array) {
+        int temp;
+        int i = 0;
+        for(int j = 0; j < array.length; j++){
+            if(array[j] % 2 != 0){        			// j遇到奇数，非奇后移
+                temp = array[j];         		    // 保存移动覆盖的奇数
+                for(int k = j - 1; k >= i; k--){ 	// i到j的偶数后移一位
+                    array[k+1] = array[k];
+                }
+                array[i] = temp;           			// 奇数往前跳动
+                i++;                       			// i指向奇数排好的下一个
             }
         }
     }

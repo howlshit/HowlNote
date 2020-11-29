@@ -18,6 +18,13 @@
 
 
 
+**优点：**
+
+* stream不会进行存储
+* 对源数据不产生修改，一切操作在生成的stream上
+* stream不会立即执行，而是延迟操作，即到了最终操作才会从头到尾执行
+* stream只能使用一次，使用过后要再次生成才能使用，否则 IllegalStateException
+
 
 
 
@@ -149,7 +156,7 @@ map方法的参数是Function函数式接口，方法为`R apply(T t)`，@return
 
 - allMatch
 
-- reduce
+- reduce：规约，可将流中元素反复结合起来，输出最终值
 
 
 

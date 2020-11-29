@@ -115,11 +115,55 @@ Lambda表达式
 
 
 
-### 4.  `::` 引用
+### 4. 方法引用 `::`
+
+方法引用为了减少Lamda代码的冗长，看起来更加简洁
 
 
 
-创建一个类
+我们在使用某个类的方法时，正常是需要将该类作为参数传递过去，然后才调用该参数类的方法，现在可以不传递类过去，而是只传递需要用到的方法即可
+
+
+
+**其格式如下：**
+
+- 静态方法引用　　　 ClassName :: staticMethodName
+- 构造方法引用　　　 ClassName :: new
+- 类实例方法引用        ClassName :: instanceMethodName
+- 实例方法引用            object :: instanceMethodName
+
+
+
+```java
+public class test {
+
+    // 函数式接口
+    public interface Foo {
+        void say(String str);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+
+        // 正常写法
+        Foo foo1 = (str) -> {System.out.println(str);};
+
+        // 简化写法
+        Foo foo2 = str -> System.out.println();
+
+        // 方法引用，会自动传递参数
+        Foo foo3 = System.out::println;
+
+        // 运行
+        foo1.say("foo1");
+        foo1.say("foo2");
+        foo1.say("foo3");
+    }
+}
+```
+
+
+
+
 
 ```java
 class Test {
@@ -139,8 +183,6 @@ class Test {
     }
 }
 ```
-
-`::`引用
 
 ```java
 public static void main(String[] args) {
