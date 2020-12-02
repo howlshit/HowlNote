@@ -644,7 +644,7 @@ public class Solution {
 public class Solution {
     public ListNode Merge(ListNode list1,ListNode list2) {
         ListNode head,node;  // 要有一个表头head来返回，node保存节点，防止断链
-        head = node = new ListNode(0);
+        head = node = new ListNode(0);	// 这里居然这样
         
         while(list1 != null && list2 != null){
             if(list1.val < list2.val){
