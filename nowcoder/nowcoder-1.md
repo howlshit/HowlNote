@@ -39,7 +39,6 @@ public class Solution {
 // 内部函数
 public class Solution {
     public String replaceSpace(StringBuffer str) {
-        
         return str.toString().replaceAll(" ", "%20");
     }
 }
@@ -668,33 +667,27 @@ public class Solution {
 
 
 
-## 17------
+## 17
 
-判断是否某树的子结构（两个递归，一个遍历树1，一个用来对比）
+判断是否某树的子结构（两个递归，一个遍历树，一个匹配）
 
 ```java
+// 思路：先序遍历父树，每次遍历都用来匹配
 public class Solution {
     public boolean HasSubtree(TreeNode root1,TreeNode root2) {
-       
-        boolean flag = false;
+        
+        // 递归出口：包含了先序遍历的 root != null
         if(root1 == null || root2 == null) return false;
         
-        if(root1.val == root2.val){  // 递归遍历，遇到根相同的
-            flag = recur(root1,root2);  // 以当前根为起点，再遍历对比
-        }
-        
-        if(!flag){  // 这里记住是!flag，即没找到相同的，找到就不用进来遍历了
-            flag = HasSubtree(root1.left,root2);
-        }
-        if(!flag){
-            flag = HasSubtree(root1.right,root2);
-        }
-        return flag;
+        // 先序遍历：当前节点，然后左子树，最后右子树
+        return recur(root1,root2) 
+            || HasSubtree(root1.left,root2) 
+            || HasSubtree(root1.right,root2);
     }
     private boolean recur(TreeNode root1,TreeNode root2){
-        if(root2 == null) return true;  // 一定要先判断tree2
-        if(root1 == null) return false;
-        if(root1.val != root2.val) return false;
+        if(root2 == null) return true;  		// 可先判断root2为空,即完成遍历匹配
+        if(root1 == null) return false;			// 则root1先被击穿
+        if(root1.val != root2.val) return false;// 当前节点不匹配
         return recur(root1.left,root2.left) && recur(root1.right,root2.right);
     }
 }
@@ -709,13 +702,13 @@ public class Solution {
 转变成二叉树的镜像
 
 ```java
+// 递归：也是前序遍历
 public class Solution {
     public void Mirror(TreeNode root) {
-        
         if(root == null) return ;  // 递归出口
-        swap(root);  // 交换根节点的左右孩子
-        Mirror(root.left);  // 孩子的孩子也交换
-        Mirror(root.right);  // 孩子的孩子也交换
+        swap(root); 			   // 交换根节点的左右孩子
+        Mirror(root.left);  	   // 孩子的孩子也交换
+        Mirror(root.right);  	   // 孩子的孩子也交换
     }
     private void swap(TreeNode root){  
         TreeNode temp = root.left;
@@ -729,7 +722,7 @@ public class Solution {
 
 
 
-## 19-------------
+## 19
 
 螺旋打印矩阵
 
@@ -808,3 +801,10 @@ public class Solution {
 }
 ```
 
+| 函数 |      |      |
+| ---- | ---- | ---- |
+| 入栈 | push |      |
+| 出栈 | pop  |      |
+|      | peek |      |
+
+栈才有这些函数，其余是add，put方法
