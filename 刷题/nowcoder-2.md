@@ -3,24 +3,21 @@
 判定入栈，出栈序列是否匹配
 
 ```java
-// 思路：用辅助栈模拟出入栈
+// 思路：用辅助栈来模拟出入栈
 import java.util.Stack;
 public class Solution {
     public boolean IsPopOrder(int [] pushA,int [] popA) {
+        int cnt = 0;											  // 记录出栈个数或下标   
+        Stack<Integer> stack = new Stack<>();					  // 辅助栈
         
-        if(pushA == null || popA == null) return false;
-        
-        int cnt = 0;                            // 记录出栈个数或下标   
-        Stack<Integer> stack = new Stack();     // 辅助栈
-        
-        for(int i = 0; i < pushA.length; i++){  // 模拟入栈
-            stack.push(pushA[i]);
-            while(!stack.isEmpty() && stack.peek() == popA[cnt]){  // while循环模拟出栈
+        for(int i = 0; i < pushA.length; i++){
+            stack.push(pushA[i]);								  // 模拟入栈
+            while(!stack.isEmpty() && stack.peek() == popA[cnt]){ // while循环模拟出栈
                 stack.pop();
                 cnt++;
             }
         }
-        return stack.isEmpty();  // 判断辅助栈是否为空
+        return stack.isEmpty();									  // 判断辅助栈是否为空
     }
 }
 ```
@@ -35,6 +32,9 @@ public class Solution {
 
 ```java
 // 思路：用一个 队列 模拟层次
+// 用LinkedList模拟队列
+// 栈是addFirst,removeFirst
+// 队列addLast,removeFirst
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class Solution {
@@ -59,7 +59,10 @@ public class Solution {
         return list;
     }
 }
+```
 
+```java
+// 用ArrayList模拟队列
 public class Solution {
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
        ArrayList<Integer> list = new ArrayList();

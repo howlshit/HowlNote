@@ -735,30 +735,30 @@ public class Solution {
         
        ArrayList<Integer> list = new ArrayList();
         
-       int left = 0, right = matrix[0].length - 1;  // 四个边界
+       int left = 0, right = matrix[0].length - 1;  // 四个边界，-1方便后面用等于判断
        int top = 0, bottom = matrix.length - 1;
         
        while(true){  // 无限循环遍历，出口在内部的边界判断
            
            for(int i = left; i <= right; i++) list.add(matrix[top][i]);
-           if(++top > bottom) break;
+           top++;    // 遍历完一行，判断上下是否遍历完
+           if(top > bottom) break;
            
            for(int i = top; i <= bottom; i++) list.add(matrix[i][right]);
-           if(left > --right) break;
+           right--;
+           if(left > right) break;
            
            for(int i = right; i >= left; i--) list.add(matrix[bottom][i]);
-           if(top > --bottom) break;
+           bottom--;
+           if(top > bottom) break;
            
            for(int i = bottom; i >= top; i--) list.add(matrix[i][left]);
-           if(++left > right) break;
+           left++;
+           if(left > right) break;
         }
         return list;
     }
 }
-```
-
-```java
-// 思路2：打印顺序第一行，然后删除第一行，最后旋转矩阵
 ```
 
 
@@ -800,11 +800,3 @@ public class Solution {
     }
 }
 ```
-
-| 函数 |      |      |
-| ---- | ---- | ---- |
-| 入栈 | push |      |
-| 出栈 | pop  |      |
-|      | peek |      |
-
-栈才有这些函数，其余是add，put方法
