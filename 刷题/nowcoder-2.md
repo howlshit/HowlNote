@@ -96,7 +96,8 @@ public class Solution {
 判断是否后序遍历
 
 ```java
-// 后序定义：最后一个是根，去除最后一个可以分成两段。前段小于根，后段大于根，以此类推递归
+// 现在开始自己规定，凡是自己传进去的数组长度这些参数，都是实际长度，就是length-1这种
+// 思路：后序中最后一个是根，去除最后一个可以分成两段。前段小于根，后段大于根，以此类推递归
 public class Solution {
     public boolean VerifySquenceOfBST(int [] sequence) {
         if(sequence == null || sequence.length == 0) return false;
@@ -115,7 +116,8 @@ public class Solution {
                 return false;
             }
         }
-        return search(arr,left,mid-1) && search(arr,mid,right-1);   // 左去界，右去根
+        // 左去界（遍历的时候比根大了才停止的），右去根
+        return search(arr,left,mid-1) && search(arr,mid,right-1);
     }
 }
 ```
@@ -133,25 +135,30 @@ import java.util.ArrayList;
 public class Solution {
     
     // 一个保存当前遍历的路径，一个保存符合的全部路径
-    ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
-    ArrayList<Integer> path = new ArrayList<Integer>();
+    ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+    ArrayList<Integer> path = new ArrayList<>();
     
     public ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
+        search(root,target);
+        return list;
+    }
+    
+    // 遍历用前序或者DFS
+    private void search(TreeNode root, int target){
+        if(root == null) return ;
         
-        if(root == null || target < 0) return list; // 到叶子节点值后值还不够，或已经多了
+        target -= root.val;
+        path.add(root.val);
         
-        path.add(root.val); // 添加当前节点进路径
-        target -= root.val; // 计算和
-        
-        if(target == 0 && root.left == null && root.right == null){
-            list.add(new ArrayList<Integer>(path));  // 访问到了叶子节点，且和为target，添加路径
+        if(root.left == null && root.right == null && target == 0){
+            list.add(new ArrayList<Integer>(path));
         }
         
-        FindPath(root.left, target);  // 深度搜索
-        FindPath(root.right, target);
+        search(root.left,target);
+        search(root.right,target);
         
-        path.remove(path.size()-1); // 回溯
-        return list;
+        // 回溯时不用加回target，因为是个副本
+        path.remove(path.size()-1);
     }
 }
 ```
@@ -643,7 +650,7 @@ public class Solution {
 
 
 
-## 15---------------
+## 15
 
 数组的逆序对
 
